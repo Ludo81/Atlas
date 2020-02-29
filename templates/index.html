@@ -78,10 +78,10 @@
 									<div class="stat-thumbnail border">
 										<i class="fas fa-map-signs font-icon blue"></i>
 										<h1 class="large muted">{{stat.town | pretty}}</h1>
-										<h4 class="text-muted"> {{ 'communes' if stat.town > 1 else 'commune' }}</h4>
+										<h4 class="text-muted"> {{ 'zones' if stat.town > 1 else 'zone' }}</h4>
 										<form method="POST" onsubmit="completeAction('#searchFormCommunesStat', hiddenInputCommunesStat)" id='searchFormCommunesStat' action=""  class="navbar-form" role="search">
 											<div class="form-group has-feedback">
-												<input id="searchCommunesStat" type="text" class="form-control" placeholder="Rechercher une commune" />
+												<input id="searchCommunesStat" type="text" class="form-control" placeholder="Rechercher une zone" />
 												<i class="glyphicon glyphicon-search form-control-feedback"></i>
 												<input id="hiddenInputCommunesStat" type="hidden" name="insee">
 											</div>

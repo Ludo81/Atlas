@@ -2,7 +2,7 @@
 <html>
    <head>
         <meta charset="utf-8" />
-        <title>Commune de {{referenciel.communeName}} | {{configuration.NOM_APPLICATION}} - {{configuration.STRUCTURE}}</title>
+        <title>Zone {{referenciel.communeName}} | {{configuration.NOM_APPLICATION}} - {{configuration.STRUCTURE}}</title>
 
         <!-- Jquery -->
         <script type="text/javascript" src="{{url_for('static', filename='lib/jquery-1.12.4.min.js') }}"></script>
@@ -47,7 +47,7 @@
             <div class="col-sm-7">
                  <div class="panel panel-default" id="parent">
 					<div class="row">
-                        <h4><b>Commune de {{referenciel.communeName}}</b></h4>
+                        <h4><b>Zone {{referenciel.communeName}}</b></h4>
                         <ul id="statHierarchy">
                             <li class="border"><span data-icon="&#xe037;" style="font-size: 30px;"></span><br/><b>{{listTaxons.nbObsTotal | pretty}}</b><br/>{{ 'observations' if listTaxons.nbObsTotal > 1 else 'observation' }}</li>
                             <li class="border"><span data-icon="&#xe03b;" style="font-size: 30px;"></span></br><b>{{listTaxons.taxons|length | pretty}}</b><br/>{{ 'espèces' if listTaxons.taxons|length > 1 else 'espèce' }}</li>
@@ -68,7 +68,7 @@
 					<div class="row ">
 						<img id ="loadingGif" src="">
 						<div class="panel-heading"><strong>
-							 <h4 id="titleMap"> {{configuration.NB_LAST_OBS}} dernières observations sur la commune de <i>{{referenciel.communeName}}</i></h4> </strong>
+							 <h4 id="titleMap"> {{configuration.NB_LAST_OBS}} dernières observations dans la zone <i>{{referenciel.communeName}}</i></h4> </strong>
 						</div>
 						<div class="panel-body">
 							 <div id="map"> </div>
