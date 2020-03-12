@@ -125,6 +125,8 @@ function inside(point, vs) {
     for(let i = 0; i < batiments.length; i++){
        if (inside(point, batiments[i])){
 	var zone = L.polyline(batiments[i]).addTo(map);
+        var latLon = L.latLng(x, y);
+        map.flyTo(latLon,18);
         tab.push(zone);
 	break;
        }
