@@ -16,6 +16,13 @@ h4.title-spaced {
   color: white;
 }
 
+.btcampus {
+  display:inline-block;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
 .back-img {
   padding: 0px;
   margin-top: -20px;

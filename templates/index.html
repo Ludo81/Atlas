@@ -161,11 +161,29 @@
 			<!-- Dernières espèces observées (Carte et liste) -->
 			<div id="DernieresObservations">
 					<div class="panel panel-default" >
+								
 					  	<div class="panel-heading padding-sm ">
 							  <h3 class="title-spaced"> <i class="fas fa-binoculars icon-color-title"></i> 
 								{{configuration.TEXT_LAST_OBS}} {{observations | length}} {{ 'observations' if observations | length > 1 else 'observation' }}
 							</h3>
 						</div>
+
+							
+
+
+								<div class="btcampus">
+									<p><a class="btn btn-default" onClick="paulSabMap()" role="button">Paul Sabatier</a></p>
+								</div>
+								<div class="btcampus">
+									<p><a class="btn btn-default" onClick="auchMap()" role="button">Auch</a></p>
+								</div>
+							
+
+
+
+
+
+
 					  	<div class="row" id="mapRow">
 							<!-- CARTE des dernières observations -->
 							<div id="blocMap" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -256,9 +274,24 @@
   			, configuration = {{configuration|tojson}},
   			url_limit_territory = "{{url_for('static', filename='custom/territoire.json') }}";
 	  	</script>
-
+		
+		<!--<script>
+			function paulSabMap(){
+				var latLon = L.latLng(43.561781, 1.469465);
+				var bounds = latLon.toBounds(1500);
+				map.setMaxBounds(bounds);
+				map.panTo(latLon);
+			}
+			function auchMap(){
+				var latLon = L.latLng(43.646672, 0.577373);
+				var bounds = latLon.toBounds(600);
+				map.setMaxBounds(bounds);
+				map.panTo(latLon);
+			}-->
+		</script>
 	  	<script src="{{url_for('static', filename='custom/maps-custom.js') }}"></script>
 		<script src="{{url_for('static', filename='mapGenerator.js') }}"></script>
+		<!-- <script src="{{url_for('static', filename='mapGeneratorAuch.js') }}"></script> -->
 		<script src="{{url_for('static', filename='mapHome.js') }}"></script>
 			<script src="{{url_for('static', filename='main.js') }}"></script>
 			<script>
