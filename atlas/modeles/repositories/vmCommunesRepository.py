@@ -40,6 +40,21 @@ def getCommunesSearch(session, search, limit=50):
         communeList.append(temp)
     return communeList
 
+def getBatimentsSearch(session, search, limit=50):
+    req = session.query(
+        distinct(VmBatiments.name)
+    ).filter(VmBatiments.zone_bats.ilike('%' + search + '%'))
+
+    req = req.order_by(VmBatiments.name)
+
+    req = req.limit(limit).all()
+    
+    batimentsList = list()
+    for r in req:
+        temp = {'label': r[0], 'value': r[1]}
+        batimentsList.append(temp)
+    return batimentsList
+
 
 def getCommuneFromInsee(connection, insee):
     sql =  """

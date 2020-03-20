@@ -131,6 +131,13 @@ function inside(point, vs) {
 	var zone = L.polyline(batiments[i]).addTo(map);      
         map.flyTo(latLon,18);
         tab.push(zone);
+        $.get(
+          configuration.URL_APPLICATION + "/searchZone",
+          { search: i, limit: 50 },
+          function(results) {
+             alert(result);
+          }
+        );
 	break;
        }
      }
