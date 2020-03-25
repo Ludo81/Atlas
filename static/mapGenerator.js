@@ -138,8 +138,9 @@ function inside(point, vs) {
              for(let j = 0; j < results.length; j++){
                 if(results[j].name !== null) liste_batiments += results[j].name + "</br>";
              }
-             console.log(liste_batiments);
-             var popup = L.popup().setLatLng(latLon).setContent(liste_batiments).openOn(map);
+             var id = configuration.URL_APPLICATION+ "/zone/"+i.toString();
+             var url_zone = "<a href="+id+"><b>Fiche Zone</b></a>";
+             var popup = L.popup().setLatLng(latLon).setContent(liste_batiments + url_zone).openOn(map);
           }
         );
 	break;
