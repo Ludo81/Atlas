@@ -126,22 +126,25 @@ function inside(point, vs) {
     var y = e.latlng.lng;
     var latLon = L.latLng(x, y);
     var point=[x,y];
+    var liste_batiments = "<b>Batiments dans cette zone : </b></br>";
     for(let i = 0; i < batiments.length; i++){
        if (inside(point, batiments[i])){
 	var zone = L.polyline(batiments[i]).addTo(map);      
         map.flyTo(latLon,18);
         tab.push(zone);
         $.get(
-          configuration.URL_APPLICATION + "/searchZone",
-          { search: i, limit: 50 },
+          configuration.URL_APPLICATION + "/api/searchZone/"+i.toString(),
           function(results) {
-             alert(result);
+             for(let j = 0; j < results.length; j++){
+                if(results[j].name !== null) liste_batiments += results[j].name + "</br>";
+             }
+             console.log(liste_batiments);
+             var popup = L.popup().setLatLng(latLon).setContent(liste_batiments).openOn(map);
           }
         );
 	break;
        }
      }
-   var popup = L.popup().setLatLng(latLon).setContent("ici c'est la zone").openOn(map);
   }
 
   // Style of territory on map

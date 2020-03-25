@@ -33,14 +33,15 @@ def searchCommuneAPI():
     results = vmCommunesRepository.getCommunesSearch(session, search, limit)
     return jsonify(results)
 
-@api.route("/searchZone", methods=["GET"])
-def searchZoneAPI():
-    session = utils.loadSession()
-    search = request.args.get("search", "")
-    limit = request.args.get("limit", 50)
-    results = vmCommunesRepository.getBatimentsSearch(session, search, limit)
-    return jsonify(results)
-
+@api.route("/searchZone/<int:id_zone>", methods=["GET"])
+def getBatimentsInfo(id_zone):
+    print("passe")
+    connection = utils.engine.connect()
+    liste_batiments = vmCommunesRepository.getBatimentsFromId(
+        connection, id_zone
+    )
+    connection.close()
+    return jsonify(liste_batiments)
 
 @api.route("/observationsMailleAndPoint/<int:cd_ref>", methods=["GET"])
 def getObservationsMailleAndPointAPI(cd_ref):

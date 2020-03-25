@@ -40,18 +40,16 @@ def getCommunesSearch(session, search, limit=50):
         communeList.append(temp)
     return communeList
 
-def getBatimentsSearch(session, search, limit=50):
-    req = session.query(
-        distinct(VmBatiments.name)
-    ).filter(VmBatiments.zone_bats.ilike('%' + search + '%'))
-
-    req = req.order_by(VmBatiments.name)
-
-    req = req.limit(limit).all()
-    
+def getBatimentsFromId(connection, id_zone):
+    sql =  """
+        SELECT name FROM atlas.batiments where zone_bats = :thisid_zone;
+    """
+    req = connection.execute(text(sql), thisid_zone=id_zone)
+    print(req)
     batimentsList = list()
     for r in req:
-        temp = {'label': r[0], 'value': r[1]}
+        print(r)
+        temp = {'name': r.name}
         batimentsList.append(temp)
     return batimentsList
 
