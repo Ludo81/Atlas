@@ -72,6 +72,18 @@ def getCommuneFromInsee(connection, insee):
         }
     return communeObj
 
+def getTerritoireUniv(connection):
+    sql =  """
+        SELECT geom FROM atlas.territoire_univ;
+    """
+    req = connection.execute(text(sql))
+
+    coordonnees = list()
+    for r in req:
+        temp = {'geom': r.geom}
+        coordonnees.append(temp)
+    return coordonnees
+
 
 def getCommunesObservationsChilds(connection, cd_ref):
     sql = """

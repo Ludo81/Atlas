@@ -43,6 +43,15 @@ def getBatimentsInfo(id_zone):
     connection.close()
     return jsonify(liste_batiments)
 
+@api.route("/coorUniv", methods=["GET"])
+def getCoorUniv():
+    connection = utils.engine.connect()
+    coorUniv = vmCommunesRepository.getTerritoireUniv(
+        connection
+    )
+    connection.close()
+    return jsonify(coorUniv)
+
 @api.route("/observationsMailleAndPoint/<int:cd_ref>", methods=["GET"])
 def getObservationsMailleAndPointAPI(cd_ref):
     """
