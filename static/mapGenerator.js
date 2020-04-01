@@ -525,7 +525,7 @@ function displayMarkerLayerPointLastObs(observationsPoint) {
    		iconSize: [27,27],
    		iconAnchor: [13,27],
    		popupAnchor: [1,-24],
-   		iconUrl: 'ecureuil.png'
+   		iconUrl: '/atlas/static/images/ecureuil.png'
    	});
 	return L.marker(latlng,{icon: icon});
       //return L.circleMarker(
@@ -562,7 +562,7 @@ function displayMarkerLayerPointCommune(observationsPoint) {
    		iconSize: [27,27],
    		iconAnchor: [13,27],
    		popupAnchor: [1,-24],
-   		iconUrl: 'ecureuil.png'
+   		iconUrl: '/atlas/static/images/ecureuil.png'
    	});
 	return L.marker(latlng,{icon: icon});
       //return L.circleMarker(
