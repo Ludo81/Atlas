@@ -517,7 +517,7 @@ function displayMarkerLayerPointLastObs(observationsPoint) {
       return {};
     };
   }
-
+  observationsPoint
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
