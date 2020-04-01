@@ -95,27 +95,42 @@
 				<li><a href="#fonctionnalites">Fonctionnalités</a></li>
                 <li><a href="#faune">Faune</a></li>
                 <li><a href="#flore">Flore</a></li>
-                <li><a href="#scientifique">Scientifique</a></li>
-                <li><a href="#opensource">Open source</a></li>
+                <li><a href="#scientifique">Fonge</a></li>
+                <li><a href="#opensource">Partage des données</a></li>
                 <li><a href="#reseaux">Réseaux</a></li>
               </ul>
             </nav>
 
             <div class="container presentation">
-              <div class="col-lg-8">
+              
                   <!-- Texte de présentation général -->
 
-                  <h2 id="general">Biodiv'Ecrins, l'atlas de la flore et de la faune du Parc national des Ecrins</h2>
+                  <h2 id="general">Biodiv’UPS, outil de découverte du patrimoine naturel de l’UPS</h2>
                   <p class="lead">
-                    Le Parc national recueille des données faune et flore sur son territoire depuis plus de 40 ans. Celles-ci sont utilisées pour mieux connaître la biodiversité, suivre les évolutions de certaines espèces fragiles ou patrimoniales… Car agir intelligemment pour la sauvegarde de ce patrimoine naturel requiert de le connaître et le comprendre.
+                    Développé dans le cadre d’un partenariat entre l’UPS et l’association naturaliste Nature en Occitanie, Biodiv’UPS a vocation à sensibiliser les étudiants, personnels et visiteurs de l’UPS à la richesse de son patrimoine naturel. Biodiv’UPS est aussi l’outil privilégié de Veracruz, l’association des étudiants et personnels écologistes et naturalistes de l’UPS.
                   </p>
                   <p class="lead">
-                    Biodiv'Ecrins met à votre disposition l'ensemble des données collectées par le Parc national des Écrins depuis sa création en 1973.
+                    Avec la visualisation conviviale des données de Biodiversité, Biodiv’UPS permet :
                   </p>
-                  <p class="lead">
-                    Chaque jour, ses agents font des observations dans le cadre de leurs missions avec un véritable souci d'enrichissement des connaissances sur la biodiversité alpine. Elles sont affichées en temps réel sur cet atlas. Vous pouvez ainsi suivre l'état des connaissances sur ce territoire.
+                  <p class="margelead">
+                    - De s’informer sur les organismes que chacun peut rencontrer à proximité de son lieu de travail, de ses lieux de pause et itinéraires de déplacement. Cliquez sur les zones géographiques qui vous intéressent et vous verrez les observations réalisées. Pour chaque espèce, découvrez alors une « fiche espèce » rassemblant ses particularités et des photographies.<br><br>
+
+    		    - D’accéder à des synthèses par périmètre géographique : nombre d’espèces inventoriées, date de dernière observation de telle espèce…<br><br>
+
+
+    		    - D’alerter sur l’éventuelle présence d’espèces rares, d’espèces protégées ou encore d’espèces invasives pour mieux les prendre en compte dans la gestion et l’aménagement des campus.<br><br>
+
+    		    - D’agréger et conserver sous un format standardisé les données naturalistes produites sur le campus pour les rendre accessibles pour la recherche et les partager avec d’autres bases de données régionales et nationales.<br><br>
                   </p>
-              </div>
+		  <p class="lead">
+                    Biodiv’UPS a été développé par un groupe d’étudiants en master d’informatique de l’UPS – Patrick Tudal, Mathey Benjamin, Damien Sarrias, Ludovic Tournier, Florent Thibaut avec l’accompagnement technique de Romain Baghi de Nature en Occitanie. Ce projet a été initié en 2019 à la demande de Laurent Pelozuelo, référent Biodiversité de l’UPS, avec le soutien de Nathalie Del-Vecchio, chargée de mission « Gestion environnementale – Développement durable et responsabilité sociétale ». 
+                  </p>
+		  <p class="lead">
+		   Biodiv’UPS est conçu à partir de l’architecture informatique de « Géonature-Atlas » produite sous licence libre par le Parc national de Ecrins.
+		  </p>
+              
+
+		<!--
               <div class="col-lg-4" style="background:#f4f4f4; border-radius: 15px; margin-top:20px; padding: 20px; text-align:left;">
                 <p>
                     <img src="http://www.mnhn.fr/sites/mnhn.fr/files/styles/bandeau/public/thumbnails/image/grande_galerie_principale.jpg?itok=CF-gmndZ" width="100%">
@@ -132,6 +147,8 @@
                     <a href="{{url_for('static', filename='custom/images/2016-11-CP-biodiv-ecrins-images.zip') }}" target="_bank"><span class="glyphicon glyphicon-camera"></span> Télécharger les photos</a>
 				</p>
               </div>
+		-->
+
               <div style="clear: both;"></div>
 
               <hr class="featurette-divider">
@@ -141,19 +158,19 @@
                 <div class="col-lg-4" id="fonctionnalites">
                   <img class="img-circle" src="{{url_for('static', filename='custom/images/03-determination.jpg') }}" alt="Generic placeholder image" width="140" height="140">
                   <h2>Fiches espèces</h2>
-                  <p>Retrouvez la fiche de chaque espèce avec leur carte des observations, leur répartition altitudinale et mensuelle, ainsi que des descriptions, photos, vidéos, audios et liens complémentaires</p>
+                  <p>Pour chaque espèce, retrouvez une description avec photographies ainsi que la carte de ses observations. Un excellent moyen de se familiariser à l’identification.</p>
                   <p><a class="btn btn-default" href="/espece/61098" role="button">Exemple &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                   <img class="img-circle" src="{{url_for('static', filename='custom/images/04-loupe.jpg') }}" alt="Generic placeholder image" width="140" height="140">
-                  <h2>Fiches communes</h2>
-                  <p>Découvrez les espèces observées sur chaque commune du parc national et affichez leurs observations sur la carte de la commune.</p>
+                  <h2>Fiches zones</h2>
+                  <p>Découvrez la liste des espèces observées autour de votre bâtiment. Idéal pour rencontrer la biodiversité qui vous entoure et orienter vos propres prospections.</p>
                   <p><a class="btn btn-default" href="/commune/05090" role="button">Exemple &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                   <img class="img-circle" src="{{url_for('static', filename='custom/images/06-photographe.jpg') }}" alt="Generic placeholder image" width="140" height="140">
                   <h2>Galerie photos</h2>
-                  <p>Découvrez les photographies des différentes espèces, réalisées principalement par les agents du Parc national lors de leurs missions sur le terrain.</p>
+                  <p>Retrouvez les photographies de toutes les espèces inventoriées sur le campus et appréciez-en la beauté tout en apprenant petit à petit les reconnaître.</p>
                   <p><a class="btn btn-default" href="{{url_for('main.photos')}}" role="button">Parcourir &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
               </div><!-- /.row -->
@@ -166,27 +183,13 @@
                 <!-- First Featurette -->
                 <div class="featurette" id="faune">
                     <img class="featurette-image img-circle img-responsive pull-right" src="{{url_for('static', filename='custom/images/09-faune.jpg') }}">
-                    <h2 class="featurette-heading">Faune sauvage.<br/><span class="text-muted">Grandes et petites bêtes.</span>
+                    <h2 class="featurette-heading">Faune
                     </h2>
                   <p class="lead">
-                    A quelques surprises près toujours possibles, la faune des vertébrés est aujourd'hui bien identifiée dans le Parc national des Écrins.
-                    Il s'agit des mammifères, oiseaux, reptiles et amphibiens.
+                    La faune présente sur les campus de l’Université Paul Sabatier est principalement une faune « ordinaire ». Pour autant, elle n’en est pas moins riche de surprises et de merveilles. Ecureuils roux et taupes laissent chacun des indices de leur présence bien visibles, respectivement pommes de pins rongées et taupinières, mais soupçonniez-vous que sur le campus de Rangueil, la nuit, circulent quelques renards, blaireaux et hérissons ? Saviez-vous que le bois de Pouciquot situé entre le restaurant universitaire « Le Canal » et la station de métro de Rangueil est classé « Zone naturelle d’intérêt écologique, floristique et faunistique » car il héberge un dortoir de choucas des tours, espèce de petit corbeau, ainsi qu’un ensemble de mares où se reproduisent le commun triton palmé mais aussi le magnifique triton marbré, avec sa tenue de camouflage, et la salamandre tachetée, à la livrée noire et jaune avertissant les prédateurs potentiels de sa toxicité.
                   </p>
                   <p class="lead">
-                    Il n'en va pas de même pour la faune des invertébrés. Il s'agit de ces étranges petites bêtes que sont les insectes, les escargots, les millepattes ou encore les araignées, coléoptères et écrevisses... Une quantité d'espèces aussi impressionnante que pleine de promesses scientifiques.
-                  </p>
-                  <p class="lead">
-                  <i>
-                    « La base de données du Parc national n'est pas un inventaire.
-                    Elle rassemble des informations collectées dans le cadre de différents protocoles scientifiques avec des objectifs différents.
-                    De fait, le nombre important d'observations de bouquetins ne veut pas dire qu'il s'agit de l'espèce la plus présente dans le massif mais bien d'une espèces très suivie, notamment dans le cadre des réintroductions ! »
-                    </i>
-                  </p>
-                  <p class="lead">
-                    - Ludovic Imberdis, chargé de mission « faune » au Parc national des Écrins
-                  </p>
-                  <p class="lead">
-                    Pour en savoir plus : <a href="http://www.ecrins-parcnational.fr/thematique/faune-sauvage" target="_blank">http://www.ecrins-parcnational.fr/thematique/faune-sauvage</a>.
+                    Insectes, araignées et mollusques, bien que plus petits et plus discrets ne sont pas en reste qui dans les pelouses, dans les arbres d’ornements et les haies et sur nos bâtiments s’affairent à construire leurs nids, tisser leurs toiles, butiner, chasser, brouter... 
                   </p>
                 </div>
 
@@ -195,29 +198,14 @@
 
               <div class="featurette" id="flore">
                   <img class="featurette-image img-circle img-responsive pull-left" src="{{url_for('static', filename='custom/images/08-flore.jpg') }}">
-                  <h2 class="featurette-heading">Flore sauvage.<br/><span class="text-muted">Des espèces à tous les étages.</span>
+                  <h2 class="featurette-heading">Flore
                   </h2>
                   <p class="lead">
 
                   <p class="lead">
-                    Plus de 2000 espèces de plantes sont présentées dans cet atlas.
-                    Si l'inventaire du monde végétal se poursuit dans les Écrins, le Parc national assure également le suivi d'espèces emblématiques (comme le chardon bleu et le sabot de Vénus) et participe à de nombreux programmes de recherche sur les milieux et espèces naturels de haute altitude.
+                    (à écrire – texte sollicité auprès de Laure Civeyrel, botaniste du laboratoire EDB)
                   </p>
-                  <p class="lead">
-                    Certaines plantes présentent des histoires de vie remarquables, allant des héritières de pratiques agricoles anciennes (prairies de fauche, cultures extensives de céréales) aux exploratrices de la haute montagne.
-                  </p>
-                  <p class="lead">
-                    <i>
-                    « L'immense intérêt d'un atlas en ligne est de partager et faire vivre une connaissance exceptionnelle du monde sauvage présent dans les Ecrins.<br/>
-                    Un tel outil redonne corps au terme parfois éculé de "biodiversité", décrivant et illustrant avec élégance la foisonnante diversité des espèces observées et étudiées. »
-                    </i>
-                  </p>
-                  <p class="lead">
-                    - Cédric Dentant, botaniste, chargé de mission flore et milieux au Parc national des Écrins
-                  </p>
-                  <p class="lead">
-                    Pour en savoir plus : <a href="" target="_blank">http://www.ecrins-parcnational.fr/thematique/flore</a>.
-                  </p>
+                  
 
               </div>
 
@@ -272,31 +260,12 @@
               <hr class="featurette-divider">
               <div class="featurette" id="scientifique">
                   <img class="featurette-image img-circle img-responsive pull-right" src="{{url_for('static', filename='custom/images/07-pne-protocoles.jpg') }}">
-                  <h2 class="featurette-heading">Une stratégie scientifique.<br/><span class="text-muted">Pour la connaissance et la protection.</span>
+                  <h2 class="featurette-heading">Fonge (les Champignons)
                   </h2>
                   <p class="lead">
-                  La préservation des espèces, des habitats et des ressources naturelles s'appuie sur le recueil d'observations, le façonnage des connaissances et la contribution à la recherche scientifique.
+                  (à écrire – texte sollicité auprès de Patricia Jargeat, mycologue du laboratoire EDB)
                   </p>
-                  <p class="lead">
-                    <i>
-                    Quelles espèces fréquentent le massif, comment elles interagissent, comment évoluent leurs populations, ou encore quelles sont les conséquences sur ces espèces des activités humaines du territoire ?
-                    C'est pour répondre à ce type de questions que différents protocoles scientifiques sont mis en œuvre.
-                    Un grand nombre des observations brutes liées à ces protocoles sont synthétisées dans cet atlas.
-                    </i>
-                  </p>
-                  <p class="lead">
-                    La richesse de la faune et de la flore des Écrins tient à la diversité des influences climatiques, géologiques, à l'amplitude altitudinale – s'échelonnant d'environ 800 m à 4102 m –, et aux différents modelés des reliefs du massif.
-                    Ainsi, le campagnol provençal et le lézard ocellé, espèces méridionales, sont présents dans le territoire des Ecrins au même titre que le campagnol des neiges et le lagopède alpin, relictes des dernières glaciations.
-                    La diversité des conditions écologiques convient à nombre de plantes, allant du robuste mélèze des pentes abruptes à la microscopique chlamydomonas des névés !
-                  </p>
-                  <p class="lead">
-                    Pour conserver ce patrimoine naturel d'exception, à l'origine de la création du Parc national, il convient de bien le connaître. Les différents programmes d'inventaire, de suivi ou d'études engagés sur le territoire poursuivent tous cet objectif.
-                  </p>
-                  <p class="lead">
-                    Pour en savoir plus, voir l'action du Parc national en termes de faune et de flore :<br/>
-                    <a href="http://www.ecrins-parcnational.fr/thematique/faune-sauvage" target="_blank">http://www.ecrins-parcnational.fr/thematique/faune-sauvage</a><br/>
-                    <a href="http://www.ecrins-parcnational.fr/thematique/flore" target="_blank">http://www.ecrins-parcnational.fr/thematique/flore</a>
-                  </p>
+                  
                 </div>
 
 
@@ -304,40 +273,17 @@
 
               <div class="row featurette">
                 <div class="col-md-12" id="opensource">
-                  <h2 class="featurette-heading">GeoNature-atlas.<br/><span class="text-muted">Dans la constellation de l'opensource.</span></h2>
+                  <h2 class="featurette-heading">Partage des données</h2>
                   <p class="lead">
-                    Biodiv'Ecrins utilise l'outil <a href="https://github.com/PnX-SI/GeoNature-atlas" target="_blank">GeoNature-atlas</a> développé par le Parc national des Écrins et publié sous licence libre. Il est ainsi transférable librement à d'autres structures qui souhaitent partager leurs observations naturalistes en se basant sur les référentiels nationaux de l'INPN.
+                    Les données visibles dans Biodiv’UPS sont partagées dans le cadre d’une convention entre l’UPS et l’association naturaliste Nature en Occitanie. 
                   </p>
-				  <p class="lead">
-					<span class="glyphicon glyphicon-download"></span> <i>Téléchargez la <a href="https://github.com/PnX-SI/GeoNature-atlas/raw/master/docs/2016-09-GeoNature-atlas-PRESENTATION.pdf">fiche de présentation de GeoNature-atlas</a> pour en savoir plus.</a></i>
-				  </p>
-                  <p class="lead">
-                    Il fait partie d'un ensemble d'outils développé par le Parc national et ses partenaires, pour pouvoir saisir, gérer et traiter les données des différents protocoles (<a href="http://geonature.fr" target="_blank">http://geonature.fr</a>).
-                  </p>
-                  <p class="lead">
-                    <img src="http://geonature.fr/img/schema-geonature-01.png" width="80%">
-                  </p>
-                  <p class="lead">
-                    <i>
-                    « Nos outils sont pensés, dès le départ, pour pouvoir être déployés par d’autres structures dans des contextes différents.
-                    Pour cela, l’accent est mis sur des développements génériques et sur la publication de l’outil sous licence libre pour en faciliter l’utilisation par d’autres ».
-                    </i>
-                  </p>
-                  <p class="lead">
-                    - Camille Monchicourt, responsable du système d’informations au Parc national des Ecrins
-                  </p>
-                  <p class="lead">
-                    En effet le Parc national des Ecrins a entrepris depuis une dizaine d'années, de migrer son système d'informations vers des outils open source. <br/>
-                    Les logiciels libres (dont le code source est ouvert, accessible et modifiable par qui le souhaite) permettent une plus grande modularité et interopérabilité des outils et des données, en plus de faciliter la mutualisation et de réduire les coûts liés aux licences.
-                  </p>
-                  <p class="lead">
-                    C'est pourquoi le parc national a aussi souhaité que les outils qu'il développe pour ses propres besoins soient eux-aussi publiés sous licence libre.<br/>
-                    En 2011, le Parc national des Ecrins a conçu et publié sous licence libre l'application <a href="http://geotrek.fr" target="_blank">Geotrek</a> pour gérer et valoriser les sentiers. Elle est aujourd'hui utilisée par une quarantaine de structures en France qui l'ont faite évoluer à leur tour, entrainant ainsi d'importantes mutualisations des ressources publiques.<br/>
-                    Pour en savoir plus, lire <a href="http://www.ecrins-parcnational.fr/actualite/geotrek-avenement-communaute-utilisateurs" target="_blank">"Geotrek, l’avènement d'une communauté d'utilisateurs"</a>.
-                  </p>
-                  <p class="lead">
-                    <i>* Un logiciel Opensource est un programme informatique dont le code source est distribué sous une licence dite « libre », permettant à quiconque de lire, modifier ou redistribuer ce logiciel.</i>
-                  </p>
+		  <p class="lead">
+			Les observatrices et observateurs (simple curieux, naturaliste débutant, naturaliste confirmé, scientifique…) saisissent leurs observations naturalistes via différents canaux (Geonat’Occitanie, Faune-France, Naturalist, Biodivercity). Les données saisies alimentent alors des bases de données associatives et sont ensuite mobilisables par les associations gestionnaires. Elles sont aussi mobilisables par les chercheurs et enseignants-chercheurs de l’UPS dans pour leurs études et enseignements.
+		  </p>
+		  <p class="lead">
+			Enfin, les données sont transmises au système d’information sur la nature et les paysages, système institutionnel national qui agrège au niveau national la connaissance naturaliste mise à disposition par les acteurs locaux.
+		  </p>
+				 
                 </div>
               </div>
 
