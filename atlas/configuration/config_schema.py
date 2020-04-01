@@ -119,10 +119,10 @@ class AtlasConfig(Schema):
     AFFICHAGE_MAILLE = fields.Boolean(missing=False)
     ZOOM_LEVEL_POINT = fields.Integer(missing=11)
     LIMIT_CLUSTER_POINT = fields.Integer(missing=1000)
-    NB_DAY_LAST_OBS = fields.String(missing="7 day")
+    NB_DAY_LAST_OBS = fields.String(missing="30 day")
     NB_LAST_OBS = fields.Integer(missing=100)
     TEXT_LAST_OBS = fields.String(
-        missing="Les observations des agents ces 7 derniers jours |"
+        missing="Les observations des agents ces 30 derniers jours |"
     )
     TYPE_DE_REPRESENTATION_MAILLE = fields.String(
         validate=OneOf(["LAST_OBS", "NB_OBS"])
