@@ -93,7 +93,7 @@ function inside(point, vs) {
                 if(results[j].name !== null) liste_batiments += results[j].name + "</br>";
              }
              var id = configuration.URL_APPLICATION+ "/zone/"+i.toString();
-             var url_zone = "<a href="+id+"><b>Fiche Zone</b></a>";
+             var url_zone = "<a href="+id+"><b>Liste des espèces observées dans la zone</b></a>";
              var popup = L.popup().setLatLng(latLon).setContent(liste_batiments + url_zone).openOn(map);
           }
         );
