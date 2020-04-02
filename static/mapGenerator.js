@@ -33,7 +33,6 @@ var batiments = [[[1.4597511395325213, 43.55993068260129],[1.4590130592788029, 4
 $.get(
           configuration.URL_APPLICATION + "/api/coorUniv",
           function(results) {
-             console.log(results[0].geom);
           }
         );
 
@@ -517,16 +516,27 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
       return {};
     };
   }
+  //for(var i = 0; i < observationsPoint.length; i++){
+   // console.log(observationsPoint[i].geojson_point.coordinates);
+   // return L.marker(observationsPoint[i].geojson_point.coordinates);
+  //}
   observationsPoint
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
-   	var image = '';
-	if (obsInpn == "Autres") {
-		image = '/atlas/static/images/picto_Autres.png';
-	} else {
-		image = '/atlas/static/images/picto_Insectes.png';
-	}
+    console.log(feature.properties.group2_inpn);
+    var image = '';
+        switch(feature.properties.group2_inpn){
+           case "Insectes":
+             image = '/atlas/static/images/picto_Insectes.png';
+             break;
+           case "Angiospermes":
+             image = '/atlas/static/images/picto_Angiospermes.png';
+             break;
+           default:
+             image = '/atlas/static/images/picto_Autres.png';
+             break;
+   	}
 	var icon = L.icon({
    		iconSize: [27,27],
    		iconAnchor: [13,27],
