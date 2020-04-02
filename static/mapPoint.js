@@ -23,6 +23,8 @@ var sliderTouch = false;
 // variable globale: observations récupérer en AJAX
 var observationsMaille;
 var observationsPoint;
+var obsInpn;
+
 $.ajax({
   url:
     configuration.URL_APPLICATION + "/api/observationsMailleAndPoint/" + cd_ref,
@@ -37,6 +39,7 @@ $.ajax({
   $("#loadingGif").hide();
   observationsMaille = observations.maille;
   observationsPoint = observations.point;
+  obsInpn = observations.group2_inpn;
 
   // mailleBoolean: dipslay maille mode because a lot of obs
   var mailleBoolean = false;

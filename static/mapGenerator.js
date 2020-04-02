@@ -510,7 +510,7 @@ function generateGeojsonPointLastObs(observationsPoint) {
   return myGeoJson;
 }
 
-function displayMarkerLayerPointLastObs(observationsPoint) {
+function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   myGeoJson = generateGeojsonPointLastObs(observationsPoint);
   if (typeof pointDisplayOptionsFicheCommuneHome == "undefined") {
     pointDisplayOptionsFicheCommuneHome = function(feature) {
@@ -521,11 +521,17 @@ function displayMarkerLayerPointLastObs(observationsPoint) {
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
-   	var icon = L.icon({
+   	var image = '';
+	if (obsInpn == "Autres") {
+		image = '/atlas/static/images/picto_Autres.png';
+	} else {
+		image = '/atlas/static/images/picto_Insectes.png';
+	}
+	var icon = L.icon({
    		iconSize: [27,27],
    		iconAnchor: [13,27],
    		popupAnchor: [1,-24],
-   		iconUrl: '/atlas/static/images/picto_Mammiferes.png'
+   		iconUrl: image
    	});
 	return L.marker(latlng,{icon: icon});
       //return L.circleMarker(
@@ -546,7 +552,7 @@ function displayMarkerLayerPointLastObs(observationsPoint) {
   }
 }
 
-function displayMarkerLayerPointCommune(observationsPoint) {
+function displayMarkerLayerPointCommune(observationsPoint,obsInpn) {
   myGeoJson = generateGeojsonPointLastObs(observationsPoint);
   if (typeof pointDisplayOptionsFicheCommuneHome == "undefined") {
     pointDisplayOptionsFicheCommuneHome = function(feature) {
@@ -558,11 +564,17 @@ function displayMarkerLayerPointCommune(observationsPoint) {
     onEachFeature: onEachFeaturePointCommune,
     pointToLayer: function(feature, latlng) {
 	//CHANGEMENT//
+	var image = '';
+	if (obsInpn == "Autres") {
+		image = '/atlas/static/images/picto_Autres.png';
+	} else {
+		image = '/atlas/static/images/picto_Insectes.png';
+	}
 	var icon = L.icon({
    		iconSize: [27,27],
    		iconAnchor: [13,27],
    		popupAnchor: [1,-24],
-   		iconUrl: '/atlas/static/images/picto_Mammiferes.png'
+   		iconUrl: image
    	});
 	return L.marker(latlng,{icon: icon});
       //return L.circleMarker(
