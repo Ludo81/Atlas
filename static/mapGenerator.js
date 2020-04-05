@@ -524,7 +524,7 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
-    console.log(feature.properties.group2_inpn);
+    console.log(feature);
     var image = '';
         switch(feature.properties.group2_inpn){
            case "Insectes":
