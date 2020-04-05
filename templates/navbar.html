@@ -1,4 +1,4 @@
-
+<script src="{{url_for('static', filename='lib/node_modules/@fortawesome/fontawesome-free/js/all.min.js') }}"></script>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
 	  <div class="navbar-header">
@@ -32,6 +32,8 @@
 					<input id="searchCommunes" type="text" class="form-control ajax-search" placeholder="Rechercher une zone" >
 					<span class="glyphicon glyphicon-search form-control-feedback"></span>
 				</div>
+				<a title="Mettre le nom du bâtiment seulement (ex : U3)"><i class="fas fa-question-circle" style="margin-left:5px; font-size:20px"></i></a>
+				
 			  <input id="hiddenInputCommunes" type="hidden" name="insee">
       </form>
 	  </div>

@@ -85,6 +85,7 @@
 												<i class="glyphicon glyphicon-search form-control-feedback"></i>
 												<input id="hiddenInputCommunesStat" type="hidden" name="insee">
 											</div>
+											<a title="Mettre le nom du bâtiment seulement (ex : U3)"><i class="fas fa-question-circle" style="margin-left:5px; font-size:20px"></i></a>
 										</form>
 									</div>
 								</div>
@@ -102,7 +103,6 @@
 
 			{% endif %}
 
-			{% if customStatMedias != None and configuration.AFFICHAGE_RANG_STAT %}
 			<!-- Statistiques par rang taxonomique -->
 					<div class="panel panel-default">
 							<div class="panel-heading padding-sm ">
@@ -110,52 +110,39 @@
 							</div>
 							<div class="row row-medias">
 
-				{% for i in range(customStatMedias | length) %}
-					{% if configuration.RANG_STAT | length == 2 %}
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 stat-medias-wrapper">
-					{% elif configuration.RANG_STAT | length == 3 %}
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 stat-medias-wrapper">
-					{% elif configuration.RANG_STAT | length == 4 %}
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 stat-medias-wrapper">
-					{% endif %}
 					<div class="statMedias">
 						<div class="">
-							<h4 class="title-spaced title-bar" >{{configuration.RANG_STAT_FR[i]}} </h4>
-							<span class="higlight">{{customStat[i].nb_obs | pretty}}</span> observations | <span class="higlight">{{customStat[i].nb_taxons| pretty}}</span> espèces
+							<h4 class="title-spaced title-bar" >Titre niv 4</h4>
 						</div>
-						
-					{% for j in range(2) %}
-						{% if loop.index <= customStatMedias[i] | length %}
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-stat-medias">
+
+								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-stat-medias">
 									<div class ="thumbnail-stat-medias">
 										<div class="zoom-wrapper">
-											<a href="{{url_for('main.ficheEspece',cd_ref=customStatMedias[i][j].cd_ref)}}" >
-                          						{% if configuration.REDIMENSIONNEMENT_IMAGE %}
-										    	  <div class="img-custom-medias cover" style="background-image: url({{configuration.TAXHUB_URL}}/api/tmedias/thumbnail/{{customStatMedias[i][j].id_media}}?h=500&w=500)"></div>
-                          						{% else %}
-										    	  <div class="img-custom-medias cover" style="background-image: url({{customStatMedias[i][j].path}})"></div>
-                          						{% endif %}
+											
+
+										    	  <div class="img-custom-medias cover"></div>
+
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="{{url_for('static', filename='images/eye.png') }}">
-										    		<h2 class="overlay-obs">{{customStatMedias[i][j].nb_obs | pretty}} observations</h2>
+										    		<h2 class="overlay-obs">Titre niv 2</h2>
 										    	</div>
 											</a>
 										</div>
 									    <div class="thumbnail-caption-medias" >
-									        <p> {% if customStatMedias[i][j].nom_vern != None %} <b>  {{customStatMedias[i][j].nom_vern}}</b> {% endif %} <br/><i>{{customStatMedias[i][j].lb_nom}}</i></p>
-									        <p><a href="{{url_for('main.ficheEspece',cd_ref=customStatMedias[i][j].cd_ref)}}" class="btn btn-default" role="button">Fiche espèce</a></p>
+						
+									        <p><a class="btn btn-default" role="button">Fiche espèce</a></p>
 									    </div>
 									</div>
 								</div>
-						{% endif %}
-					{% endfor %}
+
 							</div>
 					</div>
 
-			{% endfor %}
+
 					</div>
 				</div>
-			{% endif %}
+
 
 			{% if configuration.AFFICHAGE_DERNIERES_OBS %}
 			<!-- Dernières espèces observées (Carte et liste) -->
