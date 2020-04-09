@@ -102,6 +102,7 @@ function inside(point, vs) {
      }
   }
 
+
   // Style of territory on map
   territoryStyle = {
     fill: false,
@@ -509,6 +510,81 @@ function generateGeojsonPointLastObs(observationsPoint) {
   return myGeoJson;
 }
 
+    window.insectes = L.layerGroup();
+  window.angiospermes = L.layerGroup();
+  window.autres = L.layerGroup();
+
+window.boolInsecte = true;
+window.boolAngiosperme = true;
+window.boolAutre = true;
+
+function insecte(){
+if(boolInsecte){
+  boolInsecte= false;
+  var insecte = document.getElementById("insecte");
+  insecte.style.border = "none";
+}
+else{
+  boolInsecte= true;
+  var insecte = document.getElementById("insecte");
+  insecte.style.border = "solid";
+}
+changerLayer();
+}
+
+function angiosperme(){
+if(boolAngiosperme){
+  boolAngiosperme= false;
+  var angiosperme = document.getElementById("angiosperme");
+  angiosperme.style.border = "none";
+}
+else{
+  boolAngiosperme= true;
+  var angiosperme = document.getElementById("angiosperme");
+  angiosperme.style.border = "solid";
+}
+changerLayer();
+}
+
+function autre(){
+if(boolAutre){
+  boolAutre= false;
+  var autre = document.getElementById("autre");
+  autre.style.border = "none";
+}
+else{
+  boolAutre= true;
+  var autre = document.getElementById("autre");
+  autre.style.border = "solid";
+}
+changerLayer();
+}
+
+
+function changerLayer(){
+if(boolInsecte){
+map.addLayer(insectes);
+}
+else{
+map.removeLayer(insectes);
+}
+
+if(boolAngiosperme){
+map.addLayer(angiospermes);
+}
+else{
+map.removeLayer(angiospermes);
+}
+
+if(boolAutre){
+map.addLayer(autres);
+}
+else{
+map.removeLayer(autres);
+}
+}
+
+
 function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   myGeoJson = generateGeojsonPointLastObs(observationsPoint);
   if (typeof pointDisplayOptionsFicheCommuneHome == "undefined") {
@@ -516,25 +592,41 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
       return {};
     };
   }
-  //for(var i = 0; i < observationsPoint.length; i++){
-   // console.log(observationsPoint[i].geojson_point.coordinates);
-   // return L.marker(observationsPoint[i].geojson_point.coordinates);
-  //}
   observationsPoint
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
-    console.log(feature);
     var image = '';
         switch(feature.properties.group2_inpn){
            case "Insectes":
-             image = '/atlas/static/images/picto_Insectes.png';
+		image = '/atlas/static/images/picto_Insectes.png';
+		var icon = L.icon({
+		   		iconSize: [27,27],
+		   		iconAnchor: [13,27],
+		   		popupAnchor: [1,-24],
+		   		iconUrl: image
+		   	});
+	     return L.marker(latlng,{icon: icon}).addTo(insectes);
              break;
            case "Angiospermes":
-             image = '/atlas/static/images/picto_Angiospermes.png';
+		image = '/atlas/static/images/picto_Angiospermes.png';
+		var icon = L.icon({
+		   		iconSize: [27,27],
+		   		iconAnchor: [13,27],
+		   		popupAnchor: [1,-24],
+		   		iconUrl: image
+		   	});
+	     return L.marker(latlng,{icon: icon}).addTo(angiospermes);
              break;
            default:
-             image = '/atlas/static/images/picto_Autres.png';
+		image = '/atlas/static/images/picto_Autres.png';
+		var icon = L.icon({
+		   		iconSize: [27,27],
+		   		iconAnchor: [13,27],
+		   		popupAnchor: [1,-24],
+		   		iconUrl: image
+		   	});
+		return L.marker(latlng,{icon: icon}).addTo(autres); 
              break;
    	}
 	var icon = L.icon({
@@ -543,15 +635,15 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
    		popupAnchor: [1,-24],
    		iconUrl: image
    	});
-	return L.marker(latlng,{icon: icon});
       //return L.circleMarker(
       //  latlng,
       //  pointDisplayOptionsFicheCommuneHome(feature)
       //);
     }
   });
-
-  map.addLayer(currentLayer);
+  map.addLayer(insectes);
+  map.addLayer(angiospermes);
+  map.addLayer(autres);
   if (typeof divLegendeFicheCommuneHome !== "undefined") {
     legend.onAdd = function(map) {
       var div = L.DomUtil.create("div", "info legend");
@@ -575,11 +667,17 @@ function displayMarkerLayerPointCommune(observationsPoint,obsInpn) {
     pointToLayer: function(feature, latlng) {
 	//CHANGEMENT//
 	var image = '';
-	if (obsInpn == "Autres") {
-		image = '/atlas/static/images/picto_Autres.png';
-	} else {
-		image = '/atlas/static/images/picto_Insectes.png';
-	}
+	switch(feature.properties.group2_inpn){
+           case "Insectes":
+             image = '/atlas/static/images/picto_Insectes.png';
+             break;
+           case "Angiospermes":
+             image = '/atlas/static/images/picto_Angiospermes.png';
+             break;
+           default:
+             image = '/atlas/static/images/picto_Autres.png';
+             break;
+   	}
 	var icon = L.icon({
    		iconSize: [27,27],
    		iconAnchor: [13,27],

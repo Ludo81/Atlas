@@ -28,7 +28,6 @@
         <link rel="stylesheet" href="{{url_for('static', filename='css/atlas.css') }}" />
         <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}" />
         <link rel="stylesheet" href="{{url_for('static', filename='custom/custom.css') }}" />
-
     </head>
 
     <body>
@@ -164,6 +163,12 @@
 								<div class="btcampus">
 									<p><a class="btn btn-default" onClick="auchMap()" role="button">Auch</a></p>
 								</div>
+								<div class="btcampus" id="trier" style="margin-left:50px">
+									<p>Trier par : </p>
+									<img id= "insecte" src ='/atlas/static/images/picto_Insectes.png' onClick="insecte()" style="border:solid">
+									<img id= "angiosperme" src ='/atlas/static/images/picto_Angiospermes.png' onClick="angiosperme()" style="border:solid">
+									<img id= "autre" src ='/atlas/static/images/picto_Autres.png' onClick="autre()" style="border:solid">
+								</div>
 							
 
 
@@ -274,11 +279,10 @@
 				var bounds = latLon.toBounds(600);
 				map.setMaxBounds(bounds);
 				map.panTo(latLon);
-			}-->
-		</script>
+			}
+		</script> -->
+		<script type="text/javascript" src="{{url_for('static', filename='mapGenerator.js') }}"></script>
 	  	<script src="{{url_for('static', filename='custom/maps-custom.js') }}"></script>
-		<script src="{{url_for('static', filename='mapGenerator.js') }}"></script>
-		<!-- <script src="{{url_for('static', filename='mapGeneratorAuch.js') }}"></script> -->
 		<script src="{{url_for('static', filename='mapHome.js') }}"></script>
 			<script src="{{url_for('static', filename='main.js') }}"></script>
 			<script>
