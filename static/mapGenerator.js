@@ -510,13 +510,43 @@ function generateGeojsonPointLastObs(observationsPoint) {
   return myGeoJson;
 }
 
-    window.insectes = L.layerGroup();
-  window.angiospermes = L.layerGroup();
-  window.autres = L.layerGroup();
+window.insectes = L.layerGroup();
+window.angiospermes = L.layerGroup();
+window.autres = L.layerGroup();
+window.amphibiens = L.layerGroup();
+window.annelides = L.layerGroup();
+window.arachnides = L.layerGroup();
+window.bivalves = L.layerGroup();
+window.crustaces = L.layerGroup();
+window.fougeres = L.layerGroup();
+window.gasteropodes = L.layerGroup();
+window.gymnospermes = L.layerGroup();
+window.hepatiques = L.layerGroup();
+window.mammiferes = L.layerGroup();
+window.mousses = L.layerGroup();
+window.myriapodes = L.layerGroup();
+window.oiseaux = L.layerGroup();
+window.poissons = L.layerGroup();
+window.reptiles = L.layerGroup();
 
 window.boolInsecte = true;
 window.boolAngiosperme = true;
 window.boolAutre = true;
+window.boolAmphibiens = true;
+window.boolAnnelides = true;
+window.boolArachnides = true;
+window.boolBivalves = true;
+window.boolCrustaces = true;
+window.boolFougeres = true;
+window.boolGasteropodes = true;
+window.boolGymnospermes = true;
+window.boolHepatiques = true;
+window.boolMammiferes = true;
+window.boolMousses = true;
+window.boolMyriapodes = true;
+window.boolOiseaux = true;
+window.boolPoissons = true;
+window.boolReptiles = true;
 
 function insecte(){
 if(boolInsecte){
@@ -560,28 +590,313 @@ else{
 changerLayer();
 }
 
+function amphibien(){
+	var amphibiens = document.getElementById("amphibiens");
+	if(boolAmphibiens){
+	  boolAmphibiens = false;
+	  amphibiens.style.border = "none";
+	}
+	else{
+	  boolAmphibiens = true;
+	  amphibiens.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function annelide(){
+	var annelides = document.getElementById("annelides");
+	if(boolAnnelides){
+	  boolAnnelides = false;
+	  annelides.style.border = "none";
+	}
+	else{
+	  boolAnnelides = true;
+	  annelides.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function arachnide(){
+	var arachnides = document.getElementById("arachnides");
+	if(boolArachnides){
+	  boolArachnides = false;
+	  arachnides.style.border = "none";
+	}
+	else{
+	  boolArachnides = true;
+	  arachnides.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function bivalve(){
+	var bivalves = document.getElementById("bivalves");
+	if(boolBivalves){
+	  boolBivalves = false;
+	  bivalves.style.border = "none";
+	}
+	else{
+	  boolBivalves = true;
+	  bivalves.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function crustace(){
+	var crustaces = document.getElementById("crustaces");
+	if(boolCrustaces){
+	  boolCrustaces = false;
+	  crustaces.style.border = "none";
+	}
+	else{
+	  boolCrustaces = true;
+	  crustaces.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function fougere(){
+	var fougeres = document.getElementById("fougeres");
+	if(boolFougeres){
+	  boolFougeres = false;
+	  fougeres.style.border = "none";
+	}
+	else{
+	  boolFougeres = true;
+	  fougeres.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function gasteropode(){
+	var gasteropodes = document.getElementById("gasteropodes");
+	if(boolGasteropodes){
+	  boolGasteropodes = false;
+	  gasteropodes.style.border = "none";
+	}
+	else{
+	  boolGasteropodes = true;
+	  gasteropodes.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function gymnosperme(){
+	var gymnospermes = document.getElementById("gymnospermes");
+	if(boolGymnospermes){
+	  boolGymnospermes = false;
+	  gymnospermes.style.border = "none";
+	}
+	else{
+	  boolGymnospermes = true;
+	  gymnospermes.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function hepatique(){
+	var hepatiques = document.getElementById("hepatiques");
+	if(boolHepatiques){
+	  boolHepatiques = false;
+	  hepatiques.style.border = "none";
+	}
+	else{
+	  boolHepatiques = true;
+	  hepatiques.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function mammifere(){
+	var mammiferes = document.getElementById("mammiferes");
+	if(boolMammiferes){
+	  boolMammiferes = false;
+	  mammiferes.style.border = "none";
+	}
+	else{
+	  boolMammiferes = true;
+	  mammiferes.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function mousse(){
+	var mousses = document.getElementById("mousses");
+	if(boolMousses){
+	  boolMousses = false;
+	  mousses.style.border = "none";
+	}
+	else{
+	  boolMousses = true;
+	  mousses.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function myriapode(){
+	var myriapodes = document.getElementById("myriapodes");
+	if(boolMyriapodes){
+	  boolMyriapodes = false;
+	  myriapodes.style.border = "none";
+	}
+	else{
+	  boolMyriapodes = true;
+	  myriapodes.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function oiseau(){
+	var oiseaux = document.getElementById("oiseaux");
+	if(boolOiseaux){
+	  boolOiseaux = false;
+	  oiseaux.style.border = "none";
+	}
+	else{
+	  boolOiseaux = true;
+	  oiseaux.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function poisson(){
+	var poissons = document.getElementById("poissons");
+	if(boolPoissons){
+	  boolPoissons = false;
+	  poissons.style.border = "none";
+	}
+	else{
+	  boolPoissons = true;
+	  poissons.style.border = "solid";
+	}
+	changerLayer();
+}
+
+function reptile(){
+	var reptiles = document.getElementById("reptiles");
+	if(boolReptiles){
+	  boolReptiles = false;
+	  reptiles.style.border = "none";
+	}
+	else{
+	  boolReptiles = true;
+	  reptiles.style.border = "solid";
+	}
+	changerLayer();
+}
+
 
 function changerLayer(){
-if(boolInsecte){
-map.addLayer(insectes);
-}
-else{
-map.removeLayer(insectes);
-}
+	if(boolInsecte){
+	map.addLayer(insectes);
+	}
+	else{
+	map.removeLayer(insectes);
+	}
 
-if(boolAngiosperme){
-map.addLayer(angiospermes);
-}
-else{
-map.removeLayer(angiospermes);
-}
+	if(boolAngiosperme){
+	map.addLayer(angiospermes);
+	}
+	else{
+	map.removeLayer(angiospermes);
+	}
 
-if(boolAutre){
-map.addLayer(autres);
-}
-else{
-map.removeLayer(autres);
-}
+	if (boolAmphibiens){
+		map.addLayer(amphibiens);
+	} else {
+		map.removeLayer(amphibiens);
+	}
+
+	if (boolAnnelides){
+		map.addLayer(annelides);
+	} else {
+		map.removeLayer(annelides);
+	}
+
+	if (boolArachnides){
+		map.addLayer(arachnides);
+	} else {
+		map.removeLayer(arachnides);
+	}
+
+	if (boolBivalves){
+		map.addLayer(bivalves);
+	} else {
+		map.removeLayer(bivalves);
+	}
+
+	if (boolCrustaces){
+		map.addLayer(crustaces);
+	} else {
+		map.removeLayer(crustaces);
+	}
+
+	if (boolFougeres){
+		map.addLayer(fougeres);
+	} else {
+		map.removeLayer(fougeres);
+	}
+
+	if (boolGasteropodes){
+		map.addLayer(gasteropodes);
+	} else {
+		map.removeLayer(gasteropodes);
+	}
+
+	if (boolGymnospermes){
+		map.addLayer(gymnospermes);
+	} else {
+		map.removeLayer(gymnospermes);
+	}
+
+	if (boolHepatiques){
+		map.addLayer(hepatiques);
+	} else {
+		map.removeLayer(hepatiques);
+	}
+
+	if (boolMammiferes){
+		map.addLayer(mammiferes);
+	} else {
+		map.removeLayer(mammiferes);
+	}
+
+	if (boolMousses){
+		map.addLayer(mousses);
+	} else {
+		map.removeLayer(mousses);
+	}
+
+	if (boolMyriapodes){
+		map.addLayer(myriapodes);
+	} else {
+		map.removeLayer(myriapodes);
+	}
+
+	if (boolOiseaux){
+		map.addLayer(oiseaux);
+	} else {
+		map.removeLayer(oiseaux);
+	}
+
+	if (boolPoissons){
+		map.addLayer(poissons);
+	} else {
+		map.removeLayer(poissons);
+	}
+
+	if (boolReptiles){
+		map.addLayer(reptiles);
+	} else {
+		map.removeLayer(reptiles);
+	}
+
+	if(boolAutre){
+	map.addLayer(autres);
+	}
+	else{
+	map.removeLayer(autres);
+	}
 }
 
 
@@ -598,36 +913,186 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
     pointToLayer: function(feature, latlng) {
     var image = '';
         switch(feature.properties.group2_inpn){
-           case "Insectes":
-		image = '/atlas/static/images/picto_Insectes.png';
-		var icon = L.icon({
-		   		iconSize: [27,27],
-		   		iconAnchor: [13,27],
-		   		popupAnchor: [1,-24],
-		   		iconUrl: image
-		   	});
-	     return L.marker(latlng,{icon: icon}).addTo(insectes);
+            case "Amphibiens":
+				image = '/atlas/static/images/picto_Amphibiens.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(amphibiens);
+	            break;
+            case "Angiospermes":
+				image = '/atlas/static/images/picto_Angiospermes.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(angiospermes);
+	            break;
+            case "Annelides":
+			image = '/atlas/static/images/picto_Annelides.png';
+			var icon = L.icon({
+			   		iconSize: [27,27],
+			   		iconAnchor: [13,27],
+			   		popupAnchor: [1,-24],
+			   		iconUrl: image
+			   	});
+		     return L.marker(latlng,{icon: icon}).addTo(annelides);
              break;
-           case "Angiospermes":
-		image = '/atlas/static/images/picto_Angiospermes.png';
-		var icon = L.icon({
-		   		iconSize: [27,27],
-		   		iconAnchor: [13,27],
-		   		popupAnchor: [1,-24],
-		   		iconUrl: image
-		   	});
-	     return L.marker(latlng,{icon: icon}).addTo(angiospermes);
+            case "Arachnides":
+				image = '/atlas/static/images/picto_Arachnides.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(arachnides);
+	            break;
+            case "Bivalves":
+				image = '/atlas/static/images/picto_Bivalves.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(bivalves);
+	            break;
+            case "Crustaces":
+				image = '/atlas/static/images/picto_Crustaces.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(crustaces);
+	            break;
+	        case "Fougeres":
+				image = '/atlas/static/images/picto_Fougeres.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(fougeres);
+	            break;
+            case "Gasteropodes":
+				image = '/atlas/static/images/picto_Gasteropodes.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(gasteropodes);
+	            break;
+            case "Gymnospermes":
+			image = '/atlas/static/images/picto_Gymnospermes.png';
+			var icon = L.icon({
+			   		iconSize: [27,27],
+			   		iconAnchor: [13,27],
+			   		popupAnchor: [1,-24],
+			   		iconUrl: image
+			   	});
+		     return L.marker(latlng,{icon: icon}).addTo(gymnospermes);
              break;
-           default:
-		image = '/atlas/static/images/picto_Autres.png';
-		var icon = L.icon({
-		   		iconSize: [27,27],
-		   		iconAnchor: [13,27],
-		   		popupAnchor: [1,-24],
-		   		iconUrl: image
-		   	});
-		return L.marker(latlng,{icon: icon}).addTo(autres); 
+            case "Hepatiques et Anthocerotes":
+				image = '/atlas/static/images/picto_Hepatiques_et_Anthocerotes.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(hepatiques);
+	            break;
+            case "Insectes":
+				image = '/atlas/static/images/picto_Insectes.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(insectes);
+	            break;
+            case "Mammiferes":
+				image = '/atlas/static/images/picto_Mammiferes.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(mammiferes);
+	            break;
+	        case "Mousses":
+				image = '/atlas/static/images/picto_Mousses.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(mousses);
+	            break;
+            case "Myriapodes":
+			image = '/atlas/static/images/picto_Myriapodes.png';
+			var icon = L.icon({
+			   		iconSize: [27,27],
+			   		iconAnchor: [13,27],
+			   		popupAnchor: [1,-24],
+			   		iconUrl: image
+			   	});
+		     return L.marker(latlng,{icon: icon}).addTo(myriapodes);
              break;
+            case "Oiseaux":
+				image = '/atlas/static/images/picto_Oiseaux.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(oiseaux);
+	            break;
+            case "Poissons":
+				image = '/atlas/static/images/picto_Poissons.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(poissons);
+	            break;
+	        case "Reptiles":
+				image = '/atlas/static/images/picto_Reptiles.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(reptiles);
+	            break;
+            default:
+				image = '/atlas/static/images/picto_Autres.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+				return L.marker(latlng,{icon: icon}).addTo(autres); 
+	            break;
    	}
 	var icon = L.icon({
    		iconSize: [27,27],
@@ -644,6 +1109,21 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   map.addLayer(insectes);
   map.addLayer(angiospermes);
   map.addLayer(autres);
+  map.addLayer(amphibiens);
+  map.addLayer(annelides);
+  map.addLayer(arachnides);
+  map.addLayer(bivalves);
+  map.addLayer(crustaces);
+  map.addLayer(fougeres);
+  map.addLayer(gasteropodes);
+  map.addLayer(gymnospermes);
+  map.addLayer(hepatiques);
+  map.addLayer(mammiferes);
+  map.addLayer(mousses);
+  map.addLayer(myriapodes);
+  map.addLayer(oiseaux);
+  map.addLayer(poissons);
+  map.addLayer(reptiles);
   if (typeof divLegendeFicheCommuneHome !== "undefined") {
     legend.onAdd = function(map) {
       var div = L.DomUtil.create("div", "info legend");
@@ -668,15 +1148,60 @@ function displayMarkerLayerPointCommune(observationsPoint,obsInpn) {
 	//CHANGEMENT//
 	var image = '';
 	switch(feature.properties.group2_inpn){
-           case "Insectes":
-             image = '/atlas/static/images/picto_Insectes.png';
-             break;
-           case "Angiospermes":
-             image = '/atlas/static/images/picto_Angiospermes.png';
-             break;
-           default:
-             image = '/atlas/static/images/picto_Autres.png';
-             break;
+        case "Insectes":
+            image = '/atlas/static/images/picto_Insectes.png';
+            break;
+        case "Angiospermes":
+            image = '/atlas/static/images/picto_Angiospermes.png';
+            break;
+        case "Amphibiens":
+        	image = '/atlas/static/images/picto_Amphibiens.png'
+        	break;
+       	case "Annelides":
+        	image = '/atlas/static/images/picto_Annelides.png'
+        	break;
+       	case "Arachnides":
+        	image = '/atlas/static/images/picto_Arachnides.png'
+        	break;
+       	case "Bivalves":
+        	image = '/atlas/static/images/picto_Bivalves.png'
+        	break;
+        case "Crustaces":
+        	image = '/atlas/static/images/picto_Crustaces.png'
+        	break;
+        case "Fougeres":
+        	image = '/atlas/static/images/picto_Fougeres.png'
+        	break;
+        case "Gasteropodes":
+        	image = '/atlas/static/images/picto_Gasteropodes.png'
+        	break;
+        case "Gymnospermes":
+        	image = '/atlas/static/images/picto_Gymnospermes.png'
+        	break;
+        case "Hepatiques et Anthocerotes":
+        	image = '/atlas/static/images/picto_Hepatiques_et_Anthocerotes.png'
+        	break;
+        case "Mammiferes":
+        	image = '/atlas/static/images/picto_Mammiferes.png'
+        	break;
+        case "Mousses":
+        	image = '/atlas/static/images/picto_Mousses.png'
+        	break;
+        case "Myriapodes":
+        	image = '/atlas/static/images/picto_Myriapodes.png'
+        	break;
+        case "Oiseaux":
+        	image = '/atlas/static/images/picto_Oiseaux.png'
+        	break;
+        case "Poissons":
+        	image = '/atlas/static/images/picto_Poissons.png'
+        	break;
+        case "Reptiles":
+        	image = '/atlas/static/images/picto_Reptiles.png'
+        	break;
+        default:
+            image = '/atlas/static/images/picto_Autres.png';
+            break;
    	}
 	var icon = L.icon({
    		iconSize: [27,27],
