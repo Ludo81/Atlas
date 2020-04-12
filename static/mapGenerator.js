@@ -528,6 +528,7 @@ window.myriapodes = L.layerGroup();
 window.oiseaux = L.layerGroup();
 window.poissons = L.layerGroup();
 window.reptiles = L.layerGroup();
+window.champignons = L.layerGroup();
 
 window.boolInsecte = true;
 window.boolAngiosperme = true;
@@ -547,6 +548,7 @@ window.boolMyriapodes = true;
 window.boolOiseaux = true;
 window.boolPoissons = true;
 window.boolReptiles = true;
+window.boolChampignons = true;
 
 function insecte(){
 if(boolInsecte){
@@ -588,6 +590,19 @@ else{
   autre.style.border = "solid";
 }
 changerLayer();
+}
+
+function champignon(){
+	var champignons = document.getElementById("champignons");
+	if(boolChampignons){
+	  boolChampignons = false;
+	  champignons.style.border = "none";
+	}
+	else{
+	  boolChampignons = true;
+	  champignons.style.border = "solid";
+	}
+	changerLayer();
 }
 
 function amphibien(){
@@ -801,6 +816,12 @@ function changerLayer(){
 	map.removeLayer(angiospermes);
 	}
 
+	if(boolChampignons){
+		map.addLayer(champignons);
+	} else {
+		map.removeLayer(champignons);
+	}
+
 	if (boolAmphibiens){
 		map.addLayer(amphibiens);
 	} else {
@@ -963,6 +984,16 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   	});
 			    return L.marker(latlng,{icon: icon}).addTo(bivalves);
 	            break;
+	        case "Champignons":
+				image = '/atlas/static/images/picto_Champignons.png';
+				var icon = L.icon({
+				   		iconSize: [27,27],
+				   		iconAnchor: [13,27],
+				   		popupAnchor: [1,-24],
+				   		iconUrl: image
+				   	});
+			    return L.marker(latlng,{icon: icon}).addTo(champignons);
+	            break;
             case "Crustaces":
 				image = '/atlas/static/images/picto_Crustaces.png';
 				var icon = L.icon({
@@ -1124,6 +1155,7 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   map.addLayer(oiseaux);
   map.addLayer(poissons);
   map.addLayer(reptiles);
+  map.addLayer(champignons);
   if (typeof divLegendeFicheCommuneHome !== "undefined") {
     legend.onAdd = function(map) {
       var div = L.DomUtil.create("div", "info legend");
@@ -1166,6 +1198,9 @@ function displayMarkerLayerPointCommune(observationsPoint,obsInpn) {
        	case "Bivalves":
         	image = '/atlas/static/images/picto_Bivalves.png'
         	break;
+      	case "Champignons":
+      		image = '/atlas/static/images/picto_Champignons.png'
+      		break;
         case "Crustaces":
         	image = '/atlas/static/images/picto_Crustaces.png'
         	break;
