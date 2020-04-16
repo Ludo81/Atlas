@@ -5,20 +5,22 @@
         <title>Biodiv'UPS</title>
 
         <!-- Jquery -->
-        <script type=text/javascript src="{{url_for('static', filename='lib/jquery-1.12.4.min.js') }}"></script>
-				<script type=text/javascript src="{{url_for('static', filename='lib/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='lib/jquery-1.12.4.min.js') }}"></script>
+				<script type="text/javascript" src="{{url_for('static', filename='lib/jquery-ui.min.js') }}"></script>
 				<script type="text/javascript" src="{{url_for('static', filename='lib/jquery.lazy/jquery.lazy.min.js') }}"></script>
         <link rel="stylesheet" href="{{url_for('static', filename='lib/jquery-ui.css') }}" />
 
 		<!-- Bootstrap -->
         <link rel="stylesheet" href="{{url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}"></link>
-        <script type=text/javascript src="{{url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
 
         <!-- Leaflet -->
         <link rel="stylesheet" href="{{url_for('static', filename='lib/leaflet/leaflet.css') }}" />
         <script src="{{url_for('static', filename='lib/leaflet/leaflet.js') }}"></script>
         <script src="{{url_for('static', filename='lib/leaflet/leaflet-fullscreen/leafletFullScreen.min.js') }}"></script>
         <link rel="stylesheet" href="{{url_for('static', filename='lib/leaflet/leaflet-fullscreen/leafletFullScreen.css') }}" />
+        <script type="text/javascript" src="{{url_for('static', filename='dist/leaflet-slider.js') }}"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/leaflet-slider.css') }}">
 
 		<!-- fontawesome -->
         <script src="{{url_for('static', filename='lib/node_modules/@fortawesome/fontawesome-free/js/all.min.js') }}"></script>
@@ -156,34 +158,35 @@
 
 							
 
-
-								<div class="btcampus">
+								<h4 class="title-spaced" style="margin-left:10px">Changer de campus :</h4>
+								<div class="btcampus" style="margin-left:10px">
 									<p><a class="btn btn-default" onClick="paulSabMap()" role="button">Paul Sabatier</a></p>
 								</div>
-								<div class="btcampus">
+								<div class="btcampus" style="margin-left:10px">
 									<p><a class="btn btn-default" onClick="auchMap()" role="button">Auch</a></p>
 								</div>
-								<div class="btcampus" id="trier" style="margin-left:50px">
-									<p><b>Filtrer par : </b></p>
-									<img id= "insecte" src ='/atlas/static/images/picto_Insectes.png' onClick="insecte()" style="border:solid">
-									<img id= "angiosperme" src ='/atlas/static/images/picto_Angiospermes.png' onClick="angiosperme()" style="border:solid">
-									<img id= "autre" src ='/atlas/static/images/picto_Autres.png' onClick="autre()" style="border:solid">
-									<img id= "amphibiens" src = '/atlas/static/images/picto_Amphibiens.png' onclick="amphibien()" style="border:solid">
-									<img id= "annelides" src = '/atlas/static/images/picto_Annelides.png' onclick="annelide()" style="border:solid">
-									<img id= "arachnides" src = '/atlas/static/images/picto_Arachnides.png' onclick="arachnide()" style="border:solid">
-									<img id= "bivalves" src = '/atlas/static/images/picto_Bivalves.png' onclick="bivalve()" style="border:solid">
-									<img id= "champignons" src = '/atlas/static/images/picto_Champignons.png' onclick="champignon()" style="border:solid">
-									<img id= "crustaces" src = '/atlas/static/images/picto_Crustaces.png' onclick="crustace()" style="border:solid">
-									<img id= "fougeres" src = '/atlas/static/images/picto_Fougeres.png' onclick="fougere()" style="border:solid">
-									<img id= "gasteropodes" src = '/atlas/static/images/picto_Gasteropodes.png' onclick="gasteropode()" style="border:solid">
-									<img id= "gymnospermes" src = '/atlas/static/images/picto_Gymnospermes.png' onclick="gymnosperme()" style="border:solid">
-									<img id= "hepatiques" src = '/atlas/static/images/picto_Hepatiques_et_Anthocerotes.png' onclick="hepatique()" style="border:solid">
-									<img id= "mammiferes" src = '/atlas/static/images/picto_Mammiferes.png' onclick="mammifere()" style="border:solid">
-									<img id= "mousses" src = '/atlas/static/images/picto_Mousses.png' onclick="mousse()" style="border:solid">
-									<img id= "myriapodes" src = '/atlas/static/images/picto_Myriapodes.png' onclick="myriapode()" style="border:solid">
-									<img id= "oiseaux" src = '/atlas/static/images/picto_Oiseaux.png' onclick="oiseau()" style="border:solid">
-									<img id= "poissons" src = '/atlas/static/images/picto_Poissons.png' onclick="poisson()" style="border:solid">
-									<img id= "reptiles" src = '/atlas/static/images/picto_Reptiles.png' onclick="reptile()" style="border:solid">
+								</br>
+								<div class="btcampus" id="trier" style="margin-left:10px">
+									<h4 class="title-spaced">Filtrer par :</h4>
+									<img id= "amphibiens" src = '/atlas/static/images/picto_Amphibiens.png' onclick="amphibien()" style="border:none" title="Amphibiens">
+									<img id= "angiosperme" src ='/atlas/static/images/picto_Angiospermes.png' onClick="angiosperme()" style="border:none" title="Angiospermes">
+									<img id= "annelides" src = '/atlas/static/images/picto_Annelides.png' onclick="annelide()" style="border:none" title="Annelides">
+									<img id= "arachnides" src = '/atlas/static/images/picto_Arachnides.png' onclick="arachnide()" style="border:none" title="Arachnides">
+									<img id= "bivalves" src = '/atlas/static/images/picto_Bivalves.png' onclick="bivalve()" style="border:none" title="Bivalves">
+									<img id= "champignons" src = '/atlas/static/images/picto_Champignons.png' onclick="champignon()" style="border:none" title="Champignons">
+									<img id= "crustaces" src = '/atlas/static/images/picto_Crustaces.png' onclick="crustace()" style="border:none" title="Crustaces">
+									<img id= "fougeres" src = '/atlas/static/images/picto_Fougeres.png' onclick="fougere()" style="border:none" title="Fougeres">
+								        <img id= "gasteropodes" src = '/atlas/static/images/picto_Gasteropodes.png' onclick="gasteropode()" style="border:none"   		title="Gasteropodes">
+									<img id= "gymnospermes" src = '/atlas/static/images/picto_Gymnospermes.png' onclick="gymnosperme()" style="border:none" title="Gymnospermes">
+									<img id= "hepatiques" src = '/atlas/static/images/picto_Hepatiques_et_Anthocerotes.png' onclick="hepatique()" style="border:none" title="Hepatiques et Anthocerotes">
+									<img id= "insecte" src ='/atlas/static/images/picto_Insectes.png' onClick="insecte()" style="border:none" title="Insectes">
+									<img id= "mammiferes" src = '/atlas/static/images/picto_Mammiferes.png' onclick="mammifere()" style="border:none" title="Mammiferes">
+									<img id= "mousses" src = '/atlas/static/images/picto_Mousses.png' onclick="mousse()" style="border:none" title="Mousses">
+									<img id= "myriapodes" src = '/atlas/static/images/picto_Myriapodes.png' onclick="myriapode()" style="border:none" title="Myriapodes">
+									<img id= "oiseaux" src = '/atlas/static/images/picto_Oiseaux.png' onclick="oiseau()" style="border:none" title="Oiseaux">
+									<img id= "poissons" src = '/atlas/static/images/picto_Poissons.png' onclick="poisson()" style="border:none" title="Poissons">
+									<img id= "reptiles" src = '/atlas/static/images/picto_Reptiles.png' onclick="reptile()" style="border:none" title="Reptiles">
+									<img id= "autre" src ='/atlas/static/images/picto_Autres.png' onClick="autre()" style="border:none" title="Autre">
 								</div>
 							
 
@@ -192,7 +195,7 @@
 
 
 
-					  	<div class="row" id="mapRow">
+					  	<div class="row" id="mapRow" style="margin-top:5px">
 							<!-- CARTE des dernières observations -->
 							<div id="blocMap" class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 								<div id="map"></div>
@@ -282,8 +285,8 @@
   			, configuration = {{configuration|tojson}},
   			url_limit_territory = "{{url_for('static', filename='custom/territoire.json') }}";
 	  	</script>
-		
-		<!--<script>
+	  	<script type="text/javascript" src="{{url_for('static', filename='mapGenerator.js') }}"></script>
+		<!--<script> SCRIPT A DECOMMENTER SI ON VEUT ACTIVER LE BOUTON AUCH
 			function paulSabMap(){
 				var latLon = L.latLng(43.561781, 1.469465);
 				var bounds = latLon.toBounds(1500);
@@ -297,7 +300,6 @@
 				map.panTo(latLon);
 			}
 		</script> -->
-		<script type="text/javascript" src="{{url_for('static', filename='mapGenerator.js') }}"></script>
 	  	<script src="{{url_for('static', filename='custom/maps-custom.js') }}"></script>
 		<script src="{{url_for('static', filename='mapHome.js') }}"></script>
 			<script src="{{url_for('static', filename='main.js') }}"></script>
@@ -310,6 +312,9 @@
 					$(".lazy").lazy();
 				});
 			</script>
-
+			<script>
+				var slider = L.control.slider(function(value){test(value)}, {id:slider, max:200, min:0, step:1,
+				 orientation:'horizontal', value:0, position: 'topleft', size:"200px", syncSlider:true, logo:'Filtre date'}).addTo(map);
+			</script>
     </body>
 </html>

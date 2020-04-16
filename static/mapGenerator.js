@@ -530,25 +530,25 @@ window.poissons = L.layerGroup();
 window.reptiles = L.layerGroup();
 window.champignons = L.layerGroup();
 
-window.boolInsecte = true;
-window.boolAngiosperme = true;
-window.boolAutre = true;
-window.boolAmphibiens = true;
-window.boolAnnelides = true;
-window.boolArachnides = true;
-window.boolBivalves = true;
-window.boolCrustaces = true;
-window.boolFougeres = true;
-window.boolGasteropodes = true;
-window.boolGymnospermes = true;
-window.boolHepatiques = true;
-window.boolMammiferes = true;
-window.boolMousses = true;
-window.boolMyriapodes = true;
-window.boolOiseaux = true;
-window.boolPoissons = true;
-window.boolReptiles = true;
-window.boolChampignons = true;
+window.boolInsecte = false;
+window.boolAngiosperme = false;
+window.boolAutre = false;
+window.boolAmphibiens = false;
+window.boolAnnelides = false;
+window.boolArachnides = false;
+window.boolBivalves = false;
+window.boolCrustaces = false;
+window.boolFougeres = false;
+window.boolGasteropodes = false;
+window.boolGymnospermes = false;
+window.boolHepatiques = false;
+window.boolMammiferes = false;
+window.boolMousses = false;
+window.boolMyriapodes = false;
+window.boolOiseaux = false;
+window.boolPoissons = false;
+window.boolReptiles = false;
+window.boolChampignons = false;
 
 function insecte(){
 if(boolInsecte){
@@ -802,6 +802,11 @@ function reptile(){
 
 
 function changerLayer(){
+map.removeLayer(insectes); map.removeLayer(angiospermes); map.removeLayer(champignons); map.removeLayer(annelides); map.removeLayer(amphibiens);
+map.removeLayer(arachnides); map.removeLayer(bivalves); map.removeLayer(crustaces); map.removeLayer(fougeres); map.removeLayer(gasteropodes); map.removeLayer(gymnospermes);
+map.removeLayer(hepatiques); map.removeLayer(mammiferes); map.removeLayer(mousses); map.removeLayer(myriapodes); map.removeLayer(oiseaux); map.removeLayer(poissons);
+map.removeLayer(reptiles); map.removeLayer(autres);
+console.log(boolInsecte);
 	if(boolInsecte){
 	map.addLayer(insectes);
 	}
@@ -918,6 +923,34 @@ function changerLayer(){
 	else{
 	map.removeLayer(autres);
 	}
+	if(! (boolInsecte || boolAngiosperme || boolChampignons || boolAmphibiens || boolAnnelides || boolArachnides || boolBivalves || boolCrustaces
+		|| boolCrustaces || boolFougeres || boolGasteropodes || boolGymnospermes || boolHepatiques || boolMammiferes || boolMousses || boolMyriapodes ||
+		boolOiseaux || boolPoissons || boolReptiles || boolAutre))
+	{
+		map.addLayer(insectes);
+		map.addLayer(angiospermes);
+		map.addLayer(champignons);
+		map.addLayer(annelides);
+		map.addLayer(amphibiens);
+		map.addLayer(arachnides);
+		map.addLayer(bivalves);
+		map.addLayer(crustaces);
+		map.addLayer(fougeres);
+		map.addLayer(gasteropodes);
+		map.addLayer(gymnospermes);
+		map.addLayer(hepatiques);
+		map.addLayer(mammiferes);
+		map.addLayer(mousses);
+		map.addLayer(myriapodes);
+		map.addLayer(oiseaux);
+		map.addLayer(poissons);
+		map.addLayer(reptiles);
+		map.addLayer(autres);
+	}
+}
+
+function test(annee){
+	console.log(annee);
 }
 
 
