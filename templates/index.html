@@ -191,9 +191,12 @@
 							
 
 
-
-
-
+						<div id="observations" style="margin-left:10px; margin-top:10px; margin-bottom:7px">
+						   <p style="font-size:20px; display:inline-block" id="jours"></p>	
+  						      <span style="display:inline-block" title="Modifier J+ sur la carte pour changer de valeur"><i class="fas fa-question-circle" style="margin-left:5px; font-size:20px"></i></span>
+						   					   
+						</div>
+						
 
 					  	<div class="row" id="mapRow" style="margin-top:5px">
 							<!-- CARTE des dernières observations -->
@@ -313,8 +316,17 @@
 				});
 			</script>
 			<script>
-				var slider = L.control.slider(function(value){test(value)}, {id:slider, max:200, min:0, step:1,
-				 orientation:'horizontal', value:0, position: 'topleft', size:"200px", syncSlider:true, logo:'Filtre date'}).addTo(map);
+				var slider = L.control.slider(function(value){
+					filtrage(value); var a = document.getElementById("jours");
+						if(value === "300"){
+							a.innerHTML = "Observations observées depuis toujours";
+						}
+						else{
+							a.innerHTML = "Observations observées depuis "+value+" jours";
+						}
+					}, {id:slider, max:300, min:1, step:1,
+				 orientation:'horizontal', value:300, position: 'topleft', size:"250px", syncSlider:true, logo:'J+'
+				}).addTo(map);
 			</script>
     </body>
 </html>

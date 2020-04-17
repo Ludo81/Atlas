@@ -806,7 +806,6 @@ map.removeLayer(insectes); map.removeLayer(angiospermes); map.removeLayer(champi
 map.removeLayer(arachnides); map.removeLayer(bivalves); map.removeLayer(crustaces); map.removeLayer(fougeres); map.removeLayer(gasteropodes); map.removeLayer(gymnospermes);
 map.removeLayer(hepatiques); map.removeLayer(mammiferes); map.removeLayer(mousses); map.removeLayer(myriapodes); map.removeLayer(oiseaux); map.removeLayer(poissons);
 map.removeLayer(reptiles); map.removeLayer(autres);
-console.log(boolInsecte);
 	if(boolInsecte){
 	map.addLayer(insectes);
 	}
@@ -949,10 +948,32 @@ console.log(boolInsecte);
 	}
 }
 
-function test(annee){
-	console.log(annee);
-}
+window.observs = [];
+window.markers = [];
 
+
+window.dateNow = new Date();
+
+function filtrage(filtre){
+   if(filtre === 300){
+      for(var o = 0 ; o < markers.length ; o++){
+         map.addLayer(markers[o]);
+      }
+   }
+   else{
+      var dateMin = new Date();
+
+      dateMin.setDate(dateNow.getDate() - filtre);
+      for(var j = 0 ; j < observs.length ; j++){
+         if( new Date(observs[j].properties.dateobs) <= dateMin ){
+            map.removeLayer(markers[j]);
+         }
+         else{
+            map.addLayer(markers[j]);
+         }
+      }
+   }
+}
 
 function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   myGeoJson = generateGeojsonPointLastObs(observationsPoint);
@@ -965,6 +986,7 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
   currentLayer = L.geoJson(myGeoJson, {
     onEachFeature: onEachFeaturePointLastObs,
     pointToLayer: function(feature, latlng) {
+    observs.push(feature);
     var image = '';
         switch(feature.properties.group2_inpn){
             case "Amphibiens":
@@ -975,7 +997,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(amphibiens);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(amphibiens);
 	            break;
             case "Angiospermes":
 				image = '/atlas/static/images/picto_Angiospermes.png';
@@ -985,7 +1009,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(angiospermes);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(angiospermes);
 	            break;
             case "Annelides":
 			image = '/atlas/static/images/picto_Annelides.png';
@@ -995,7 +1021,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 			   		popupAnchor: [1,-24],
 			   		iconUrl: image
 			   	});
-		     return L.marker(latlng,{icon: icon}).addTo(annelides);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+		     return mark.addTo(annelides);
              break;
             case "Arachnides":
 				image = '/atlas/static/images/picto_Arachnides.png';
@@ -1005,7 +1033,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(arachnides);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(arachnides);
 	            break;
             case "Bivalves":
 				image = '/atlas/static/images/picto_Bivalves.png';
@@ -1025,7 +1055,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(champignons);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(champignons);
 	            break;
             case "Crustaces":
 				image = '/atlas/static/images/picto_Crustaces.png';
@@ -1035,7 +1067,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(crustaces);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(crustaces);
 	            break;
 	        case "Fougeres":
 				image = '/atlas/static/images/picto_Fougeres.png';
@@ -1045,7 +1079,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(fougeres);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(fougeres);
 	            break;
             case "Gasteropodes":
 				image = '/atlas/static/images/picto_Gasteropodes.png';
@@ -1055,7 +1091,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(gasteropodes);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(gasteropodes);
 	            break;
             case "Gymnospermes":
 			image = '/atlas/static/images/picto_Gymnospermes.png';
@@ -1065,7 +1103,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 			   		popupAnchor: [1,-24],
 			   		iconUrl: image
 			   	});
-		     return L.marker(latlng,{icon: icon}).addTo(gymnospermes);
+			var mark = L.marker(latlng,{icon: icon})
+			markers.push(mark);
+		     return mark.addTo(gymnospermes);
              break;
             case "Hepatiques et Anthocerotes":
 				image = '/atlas/static/images/picto_Hepatiques_et_Anthocerotes.png';
@@ -1075,7 +1115,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(hepatiques);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(hepatiques);
 	            break;
             case "Insectes":
 				image = '/atlas/static/images/picto_Insectes.png';
@@ -1085,7 +1127,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(insectes);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(insectes);
 	            break;
             case "Mammiferes":
 				image = '/atlas/static/images/picto_Mammiferes.png';
@@ -1095,7 +1139,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(mammiferes);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(mammiferes);
 	            break;
 	        case "Mousses":
 				image = '/atlas/static/images/picto_Mousses.png';
@@ -1105,7 +1151,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(mousses);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(mousses);
 	            break;
             case "Myriapodes":
 			image = '/atlas/static/images/picto_Myriapodes.png';
@@ -1115,7 +1163,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 			   		popupAnchor: [1,-24],
 			   		iconUrl: image
 			   	});
-		     return L.marker(latlng,{icon: icon}).addTo(myriapodes);
+			var mark = L.marker(latlng,{icon: icon})
+			markers.push(mark);
+		     return mark.addTo(myriapodes);
              break;
             case "Oiseaux":
 				image = '/atlas/static/images/picto_Oiseaux.png';
@@ -1125,7 +1175,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(oiseaux);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(oiseaux);
 	            break;
             case "Poissons":
 				image = '/atlas/static/images/picto_Poissons.png';
@@ -1135,7 +1187,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(poissons);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(poissons);
 	            break;
 	        case "Reptiles":
 				image = '/atlas/static/images/picto_Reptiles.png';
@@ -1145,7 +1199,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-			    return L.marker(latlng,{icon: icon}).addTo(reptiles);
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+			    return mark.addTo(reptiles);
 	            break;
             default:
 				image = '/atlas/static/images/picto_Autres.png';
@@ -1155,7 +1211,9 @@ function displayMarkerLayerPointLastObs(observationsPoint,obsInpn) {
 				   		popupAnchor: [1,-24],
 				   		iconUrl: image
 				   	});
-				return L.marker(latlng,{icon: icon}).addTo(autres); 
+				var mark = L.marker(latlng,{icon: icon})
+				markers.push(mark);
+				return mark.addTo(autres); 
 	            break;
    	}
 	var icon = L.icon({
@@ -1443,7 +1501,7 @@ var mySlider;
 function generateSliderOnMap() {
   var SliderControl = L.Control.extend({
     options: {
-      position: "bottomleft"
+      position: "bottoml<eft"
       //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
     },
 
@@ -1484,3 +1542,4 @@ function generateSliderOnMap() {
   $("#yearMax").html("&nbsp;&nbsp;&nbsp;&nbsp;" + YEARMAX);
   $("#yearMin").html(taxonYearMin + "&nbsp;&nbsp;&nbsp;&nbsp");
 }
+
