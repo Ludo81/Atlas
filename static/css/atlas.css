@@ -1,6 +1,7 @@
 :root {
   --main-color: #82c91e;
   --second-color: #649b18;
+  --gris:#808080;
 }
 
 
@@ -102,6 +103,12 @@ a {
   color: white;
   border-color: var(--main-color);
   background-color: var(--main-color) !important;
+}
+
+.btn.btn-gris {
+  color: white;
+  border-color: var(--main-gris);
+  background-color: var(--gris) !important;
 }
 
 .btn.btn-default:hover {
