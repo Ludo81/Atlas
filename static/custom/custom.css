@@ -5,3 +5,7 @@
   --main-color: #82c91e;
   --second-color: #649b18;
 }
+
+.affix{ 
+top:60px
+}

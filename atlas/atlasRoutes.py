@@ -273,6 +273,15 @@ def photos():
     connection.close()
     return render_template("templates/galeriePhotos.html", groups=groups)
 
+@main.route("/partenaires", methods=["GET", "POST"])
+def partenaires():
+    session = utils.loadSession()
+    connection = utils.engine.connect()
+
+
+    session.close()
+    connection.close()
+    return render_template("static/custom/templates/partenaires.html")
 
 @main.route("/<page>", methods=["GET", "POST"])
 def get_staticpages(page):

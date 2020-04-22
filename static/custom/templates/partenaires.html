@@ -1,0 +1,79 @@
+<!-- Réalisée à partir de https://startbootstrap.com/template-overviews/one-page-wonder/ et http://getbootstrap.com/examples/carousel/ -->
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="utf-8" />
+        <title>Présentation de l'atlas | {{configuration.NOM_APPLICATION}} - {{configuration.STRUCTURE}}</title>
+
+        <!-- Jquery -->
+        <script type=text/javascript src="{{url_for('static', filename='lib/jquery-1.12.4.min.js') }}"></script>
+		<script type=text/javascript src="{{url_for('static', filename='lib/jquery-ui.min.js') }}"></script>
+        <link rel="stylesheet" href="{{url_for('static', filename='lib/jquery-ui.css') }}" />
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{{url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}"></link>
+        <script type=text/javascript src="{{url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+
+        <!-- Atlas -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='custom/images/favicon.ico') }}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/atlas.css') }}" />
+        <link rel="stylesheet" href="{{url_for('static', filename='css/static_pages.css') }}" />
+        <link rel="stylesheet" href="{{url_for('static', filename='custom/custom.css') }}" />
+
+   </head>
+   <body  data-spy="scroll" data-target="#sommaire">
+    {% include 'templates/navbar.html' %}
+
+		<div id="sideBar">
+			{% include 'templates/sideBar.html' %}
+		</div>
+		<div class="container-fluid" id="page">
+
+
+           
+            <div class="container presentation">
+              
+            
+
+                  <h2 id="general">PARTENAIRES</h2>
+                  <p class="lead">
+                    Développé dans le cadre d’un partenariat entre l’UPS et l’association naturaliste Nature en Occitanie, Biodiv’UPS a vocation à sensibiliser les étudiants, personnels et visiteurs de l’UPS à la richesse de son patrimoine naturel. Biodiv’UPS est aussi l’outil privilégié de Veracruz, l’association des étudiants et personnels écologistes et naturalistes de l’UPS.
+                  </p>
+                  <p class="lead">
+                    Avec la visualisation conviviale des données de Biodiversité, Biodiv’UPS permet :
+                  </p>
+                  <p class="margelead">
+                    - De s’informer sur les organismes que chacun peut rencontrer à proximité de son lieu de travail, de ses lieux de pause et itinéraires de déplacement. Cliquez sur les zones géographiques qui vous intéressent et vous verrez les observations réalisées. Pour chaque espèce, découvrez alors une « fiche espèce » rassemblant ses particularités et des photographies.<br><br>
+
+    		    - D’accéder à des synthèses par périmètre géographique : nombre d’espèces inventoriées, date de dernière observation de telle espèce…<br><br>
+
+
+    		    - D’alerter sur l’éventuelle présence d’espèces rares, d’espèces protégées ou encore d’espèces invasives pour mieux les prendre en compte dans la gestion et l’aménagement des campus.<br><br>
+
+    		    - D’agréger et conserver sous un format standardisé les données naturalistes produites sur le campus pour les rendre accessibles pour la recherche et les partager avec d’autres bases de données régionales et nationales.<br><br>
+                  </p>
+		  <p class="lead">
+                    Biodiv’UPS a été développé par un groupe d’étudiants en master d’informatique de l’UPS – Patrick Tudal, Mathey Benjamin, Damien Sarrias, Ludovic Tournier, Florent Thibaut avec l’accompagnement technique de Romain Baghi de Nature en Occitanie. Ce projet a été initié en 2019 à la demande de Laurent Pelozuelo, référent Biodiversité de l’UPS, avec le soutien de Nathalie Del-Vecchio, chargée de mission « Gestion environnementale – Développement durable et responsabilité sociétale ». 
+                  </p>
+		  <p class="lead">
+		   Biodiv’UPS est conçu à partir de l’architecture informatique de « Géonature-Atlas » produite sous licence libre par le Parc national de Ecrins.
+		  </p>
+              
+
+            </div>
+
+
+        </div>
+
+		{% if configuration.AFFICHAGE_FOOTER %}
+			{% include 'static/custom/templates/footer.html' %}
+		{% endif %}
+
+        <script type="text/javascript">
+        var configuration = {{configuration|tojson}};
+        </script>
+
+        <script src="{{url_for('static', filename='main.js') }}"></script>
+
+   </body>
+</html>
