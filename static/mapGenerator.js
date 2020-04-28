@@ -30,11 +30,6 @@ var batiments = [[[1.4597511395325213, 43.55993068260129],[1.4590130592788029, 4
   map.setMaxBounds(bounds);
   map.on('click',afficherZone);
 
-$.get(
-          configuration.URL_APPLICATION + "/api/coorUniv",
-          function(results) {
-          }
-        );
 
   for(let i = 0; i < pointsPaulSab.length; i++){
     pointsPaulSab[i] = pointsPaulSab[i].reverse();

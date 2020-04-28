@@ -156,3 +156,5 @@ def getAllINPNgroup(connection):
         }
         groupList.append(temp)
     return groupList
+
+

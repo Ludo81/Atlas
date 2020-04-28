@@ -151,3 +151,25 @@ def test():
     )
     connection.close()
     return jsonify(photos)
+
+@api.route("/fonge", methods=["GET"])
+def fonge():
+	connection = utils.engine.connect()
+	fonge=vmSearchTaxonRepository.getfonge(connection)
+	connection.close()
+	return jsonify(fonge)
+
+@api.route("/flore", methods=["GET"])
+def flore():
+	connection = utils.engine.connect()
+	flore=vmSearchTaxonRepository.getflore(connection)
+	connection.close()
+	return jsonify(flore)
+
+@api.route("/faune", methods=["GET"])
+def faune():
+	connection = utils.engine.connect()
+	faune=vmSearchTaxonRepository.getfaune(connection)
+	connection.close()
+	return jsonify(faune)
+

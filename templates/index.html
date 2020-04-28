@@ -178,7 +178,7 @@
 											</a>
 										</div>
 									    <div class="thumbnail-caption-medias">
-									        <p>  <br><i>Neriene radiata</i></p>
+									        <p id="faune1">  </p>
 									        <p><a href="/espece/1468" class="btn btn-default" role="button">Fiche espèce</a></p>
 									    </div>
 									</div>
@@ -516,6 +516,45 @@
 					}, {id:slider, max:300, min:1, step:1,
 				 orientation:'horizontal', value:300, position: 'topleft', size:"250px", syncSlider:true, logo:'J+'
 				}).addTo(map);
+			</script>
+
+			<script>
+				$.get(
+			          configuration.URL_APPLICATION + "/api/fonge",
+			          function(results) {
+			             //for(let j = 0; j < results.length; j++){
+			                //if(results[j].name !== null) liste_batiments += results[j].name + "</br>";
+			           //  }
+			           //  var id = configuration.URL_APPLICATION+ "/zone/"+i.toString();
+			     		console.log(results);
+			          }
+			        );
+
+				$.get(
+			          configuration.URL_APPLICATION + "/api/flore",
+			          function(results) {
+			             //for(let j = 0; j < results.length; j++){
+			                //if(results[j].name !== null) liste_batiments += results[j].name + "</br>";
+			           //  }
+			           //  var id = configuration.URL_APPLICATION+ "/zone/"+i.toString();
+			     		console.log(results);
+			          }
+			        );
+
+				$.get(
+			          configuration.URL_APPLICATION + "/api/faune",
+			          function(results) {
+			          	var rand1 = Math.floor(Math.random()*(results.length-0)+0);
+			          	var rand2 = Math.floor(Math.random()*(results.length-0)+0);
+			          	if(rand2==rand1 && rand2 != results.length-1) rand2+1;
+			          	if(rand2==rand1 && rand2 != 0) rand2-1;
+			            var faune1 = document.getElementById("faune1");
+			            faune1.innerHTML="<br><i>"+results"</i>";
+
+			     		console.log(results);
+			          }
+			        );
+
 			</script>
     </body>
 </html>
