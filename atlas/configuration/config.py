@@ -21,6 +21,11 @@ NOM_APPLICATION = "Nom de l application"
 # ex "/atlas" pour une URL: http://mon-domaine/atlas OU "" si l'application est accessible à la racine du domaine
 URL_APPLICATION = "/atlas"
 
+#AFFICHAGE_RANG_STAT = True
+#COLONNES_RANG_STAT = 3
+#RANG_STAT = [{'phylum': ["Arthropoda", "Mollusca"]}, {'phylum': ["Chordata"]}, {'regne': ["Plantae"]}]
+#RANG_STAT_FR = ['Faune invertébrée', 'Faune vertébrée', 'Flore']
+
 ###########################
 ###### Cartographie #######
 ###########################
