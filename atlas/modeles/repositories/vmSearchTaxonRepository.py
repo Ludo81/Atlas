@@ -102,3 +102,16 @@ def getfaune(connection):
            groupList.append(temp)
         return groupList
 
+def getmedia(connection,parametre):
+         sql="""
+            SELECT url FROM taxonomie.t_medias WHERE cd_ref = :thisparametre
+         """
+         req=connection.execute(text(sql),thisparametre = parametre)
+         print(req)
+         groupList = list()
+         for r in req:
+           temp = {
+               'url': r.url,
+           }
+           groupList.append(temp)
+         return groupList

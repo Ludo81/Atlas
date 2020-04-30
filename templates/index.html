@@ -168,9 +168,11 @@
 									<div class="thumbnail-stat-medias">
 										<div class="zoom-wrapper">
 											<a id = "imageFaune1">
-                          						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
-                          						
+
+                          						<div id = "mediaFaune1">
+										    	  
+                          						</div>
+
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
 										    		<!-- <h2 class="overlay-obs">2 observations</h2> -->
@@ -192,7 +194,9 @@
 										<div class="zoom-wrapper">
 											<a id = "imageFaune2">
                           						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
+										    	 <div id = "mediaFaune2">
+										    	  
+                          						 </div>
                           						
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
@@ -228,7 +232,9 @@
 										<div class="zoom-wrapper">
 											<a id = "imageFlore1">
                           						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
+										    	  <div id = "mediaFlore1">
+										    	  
+                          						</div>
                           						
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
@@ -251,7 +257,9 @@
 										<div class="zoom-wrapper">
 											<a id = "imageFlore2">
                           						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
+										    	  <div id = "mediaFlore2">
+										    	  
+                          						</div>
                           						
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
@@ -287,7 +295,9 @@
 										<div class="zoom-wrapper">
 											<a id = "imageFonge1">
                           						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
+										    	  <div id = "mediaFonge1">
+										    	  
+                          						</div>
                           						
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
@@ -310,7 +320,9 @@
 										<div class="zoom-wrapper">
 											<a id = "imageFonge2">
                           						
-										    	  <div class="img-custom-medias cover" style="background-image: url(https://lemagduchat.ouest-france.fr/images/dossiers/2018-11/chat-drole-113730.jpg)"></div>
+										    	  <div id = "mediaFonge2">
+										    	  
+                          						</div>
                           						
 										    	<div class="stat-medias-hovereffet">
 										    		<img src="/static/images/eye.png">
@@ -530,12 +542,10 @@
 			          function(results) {
 			            var rand1 = Math.floor(Math.random()*(results.length-0)+0);
 			          	var rand2 = Math.floor(Math.random()*(results.length-0)+0);
-			          	console.log(rand1);
-			          	console.log(rand2);
-			          	if(rand2==rand1 && rand2 != results.length-1) rand2=rand+1;
+			          	
+			          	if(rand2==rand1 && rand2 != results.length-1) rand2=rand2+1;
 			          	if(rand2==rand1 && rand2 != 0) rand2=rand2-1;
-			          	console.log(rand1);
-			          	console.log(rand2);
+			          	
 
 			            var fongeLatin1 = document.getElementById("fongeLatin1");
 			            fongeLatin1.innerHTML="<i>"+results[rand1].nomLatin+"</i>";
@@ -546,8 +556,23 @@
 			            var imageFonge1 = document.getElementById("imageFonge1");
 			            imageFonge1.href="/espece/"+results[rand1].num;
 
-			            var ficheFOnge1 = document.getElementById("ficheFonge1");
+			            var ficheFonge1 = document.getElementById("ficheFonge1");
 			            ficheFonge1.innerHTML="<a href='/espece/"+results[rand1].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
+
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand1].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFonge1 = document.getElementById("mediaFonge1"); 
+				          			mediaFonge1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFonge1 = document.getElementById("mediaFonge1"); 
+				          			mediaFonge1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/2022697.svg); width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
+
+						);
 
 
 			            var fongeLatin2 = document.getElementById("fongeLatin2");
@@ -562,9 +587,26 @@
 			            var ficheFonge2 = document.getElementById("ficheFonge2");
 			            ficheFonge2.innerHTML="<a href='/espece/"+results[rand2].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
 
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand2].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFonge2 = document.getElementById("mediaFonge2"); 
+				          			mediaFonge2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFonge2 = document.getElementById("mediaFonge2"); 
+				          			mediaFonge2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/2022697.svg); width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
+
+						);
+
 			     		console.log(results);
 			          }
+
 			        );
+
 
 				$.get(
 			          configuration.URL_APPLICATION + "/api/flore",
@@ -586,6 +628,21 @@
 			            var ficheFlore1 = document.getElementById("ficheFlore1");
 			            ficheFlore1.innerHTML="<a href='/espece/"+results[rand1].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
 
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand1].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFlore1 = document.getElementById("mediaFlore1"); 
+				          			mediaFlore1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFlore1 = document.getElementById("mediaFlore1"); 
+				          			mediaFlore1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/31420.svg); width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
+
+						);
+
 
 			            var floreLatin2 = document.getElementById("floreLatin2");
 			            floreLatin2.innerHTML="<i>"+results[rand2].nomLatin+"</i>";
@@ -599,8 +656,20 @@
 			            var ficheFlore2 = document.getElementById("ficheFlore2");
 			            ficheFlore2.innerHTML="<a href='/espece/"+results[rand2].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
 
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand2].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFlore2 = document.getElementById("mediaFlore2"); 
+				          			mediaFlore2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFlore2 = document.getElementById("mediaFlore2"); 
+				          			mediaFlore2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/31420.svg); width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
 
-			            
+						);
 
 			     		console.log(results);
 			          }
@@ -624,7 +693,22 @@
 			            imageFaune1.href="/espece/"+results[rand1].num;
 
 			            var ficheFaune1 = document.getElementById("ficheFaune1");
-			            ficheFaune1.innerHTML="<a href='/espece/"+results[rand1].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
+			            ficheFaune1.innerHTML="<a href='/espece/"+results[rand1].num+"' class='btn btn-default' role='button'>Fiche espèce</a>";
+
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand1].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFaune1 = document.getElementById("mediaFaune1"); 
+				          			mediaFaune1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFaune1 = document.getElementById("mediaFaune1"); 
+				          			mediaFaune1.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/1254586.svg) ; width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
+
+						);
 
 
 			            var fauneLatin2 = document.getElementById("fauneLatin2");
@@ -639,7 +723,20 @@
 			            var ficheFaune2 = document.getElementById("ficheFaune2");
 			            ficheFaune2.innerHTML="<a href='/espece/"+results[rand2].num+"' class='btn btn-default' role='button'>Fiche espèce</a>"
 			           
+			            $.get(
+							configuration.URL_APPLICATION + "/api/media/"+results[rand2].num,
+			          		function(resultsMedia) {
+			          			console.log(resultsMedia);
+				          		if(resultsMedia.length !== 0) {
+				          			var mediaFaune2 = document.getElementById("mediaFaune2"); 
+				          			mediaFaune2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url("+resultsMedia[0].url+")'></div>";
+				          		} else {
+				          			var mediaFaune2 = document.getElementById("mediaFaune2"); 
+				          			mediaFaune2.innerHTML = "<div class='img-custom-medias cover' style='background-image: url(https://svgsilh.com/svg/1254586.svg); width:70% ; margin-left:20px'></div>";
+				          		}
+			          		}
 
+						);
 
 			     		console.log(results);
 			          }

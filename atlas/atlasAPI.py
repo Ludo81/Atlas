@@ -173,3 +173,9 @@ def faune():
 	connection.close()
 	return jsonify(faune)
 
+@api.route("/media/<int:cd_ref>",methods=["GET"])
+def media(cd_ref):
+        connection = utils.engine.connect()
+        media=vmSearchTaxonRepository.getmedia(connection,cd_ref)
+        connection.close()
+        return jsonify(media)
