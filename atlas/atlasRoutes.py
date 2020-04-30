@@ -283,6 +283,37 @@ def partenaires():
     connection.close()
     return render_template("static/custom/templates/partenaires.html")
 
+@main.route("/faune", methods=["GET", "POST"])
+def faune():
+    session = utils.loadSession()
+    connection = utils.engine.connect()
+
+
+    session.close()
+    connection.close()
+    return render_picture("static/images/Faune.png")
+
+@main.route("/flore", methods=["GET", "POST"])
+def flore():
+    session = utils.loadSession()
+    connection = utils.engine.connect()
+
+
+    session.close()
+    connection.close()
+    return render_template("static/images/Angiospermes1.png")
+
+@main.route("/fonge", methods=["GET", "POST"])
+def fonge():
+    session = utils.loadSession()
+    connection = utils.engine.connect()
+
+
+    session.close()
+    connection.close()
+    return render_template("index.html", user_image = "static/images/Champignons.png")
+
+
 @main.route("/<page>", methods=["GET", "POST"])
 def get_staticpages(page):
     session = utils.loadSession()
